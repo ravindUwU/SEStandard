@@ -6,9 +6,11 @@
 
 **A C# library for querying the Stack Exchange API.**
 
-[![NuGet](https://img.shields.io/nuget/v/RavinduL.SEStandard.svg?style=flat-square)](https://www.nuget.org/packages/RavinduL.SEStandard)
-[![NuGet](https://img.shields.io/nuget/dt/RavinduL.SEStandard.svg?style=flat-square)](https://www.nuget.org/packages/RavinduL.SEStandard)
-[![license](https://img.shields.io/github/license/RavinduL/SEStandard.svg?style=flat-square)](https://github.com/RavinduL/SEStandard/blob/master/LICENSE)  
+[![NuGet Package](https://img.shields.io/nuget/v/RavinduL.SEStandard.svg?style=flat-square)](https://www.nuget.org/packages/RavinduL.SEStandard)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/RavinduL.SEStandard.svg?style=flat-square)](https://www.nuget.org/packages/RavinduL.SEStandard)
+[![MIT License](https://img.shields.io/github/license/RavinduL/SEStandard.svg?style=flat-square)](https://github.com/RavinduL/SEStandard/blob/master/LICENSE)
+[![StackApps Post](https://img.shields.io/badge/StackApps-%237777-000000.svg?style=flat-square)](https://stackapps.com/q/7777/36931)
+
 [Features](#features) |
 [Installation](#installation) |
 [Usage](#usage) |
@@ -32,11 +34,15 @@
 
 To install this library via **NuGet** ([package](https://www.nuget.org/packages/RavinduL.SEStandard)),
 
-&emsp;&emsp;`PM> Install-Package RavinduL.SEStandard -Version 1.0.0-rc`
+```Text
+	PM> Install-Package RavinduL.SEStandard -Version 1.0.0-rc
+```
 
 To install the NuGet package via the **.NET Core CLI**,
 
-&emsp;&emsp;`PS> dotnet add package RavinduL.SEStandard --version 1.0.0-rc`
+```Text
+	PS> dotnet add package RavinduL.SEStandard --version 1.0.0-rc`
+```
 
 Should you prefer to manually build the library from its source instead, please refer to the [Contributing](#contributing) section for instructions on how to do so.
 
@@ -324,7 +330,7 @@ public class CustomStackExchangeClient : StackExchangeClient
 
 ## Contributing
 
-Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for details on setting up this project for development, repository layout, bug fixing and contributing guidelines, etc.
+Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for information on setting up this project for development, repository layout, etc.
 
 <br>
 

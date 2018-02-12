@@ -10,8 +10,10 @@
 		<PackageIconUrl>https://raw.githubusercontent.com/RavinduL/SEStandard/master/images/logo.png</PackageIconUrl>
 		<RepositoryUrl>https://github.com/RavinduL/SEStandard</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>stack exchange overflow stackoverflow</PackageTags>
+		<PackageTags>stack exchange overflow stackexchange stackoverflow</PackageTags>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageId>RavinduL.SEStandard</PackageId>
+		<Title>SEStandard</Title>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<DocumentationFile>bin\Release\netstandard1.1\RavinduL.SEStandard.xml</DocumentationFile>

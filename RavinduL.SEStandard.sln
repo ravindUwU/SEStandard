@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{EAE0389A-5
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		Cake.ps1 = Cake.ps1
+		CONTRIBUTING.md = CONTRIBUTING.md
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
