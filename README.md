@@ -1,15 +1,18 @@
 <div align="center">
 
-<img src="images/logo.png" height=100>
+<img src="images/logo.png" height="100">
 
 # SEStandard<sup>†</sup>
 
 **A C# library for querying the Stack Exchange API.**
 
+[![NuGet](https://img.shields.io/nuget/v/RavinduL.SEStandard.svg?style=flat-square)](https://www.nuget.org/packages/RavinduL.SEStandard)
+[![NuGet](https://img.shields.io/nuget/dt/RavinduL.SEStandard.svg?style=flat-square)](https://www.nuget.org/packages/RavinduL.SEStandard)
+[![license](https://img.shields.io/github/license/RavinduL/SEStandard.svg?style=flat-square)](https://github.com/RavinduL/SEStandard/blob/master/LICENSE)  
 [Features](#features) |
 [Installation](#installation) |
 [Usage](#usage) |
-[Contribution](#contribution) |
+[Contributing](#contributing) |
 [Credits](#credits)
 
 </div>
@@ -27,15 +30,15 @@
 
 ## Installation
 
-To install this library via **NuGet** ([package](#)),
+To install this library via **NuGet** ([package](https://www.nuget.org/packages/RavinduL.SEStandard)),
 
-&emsp;&emsp;`PM> Install-Package RavinduL.SEStandard`
+&emsp;&emsp;`PM> Install-Package RavinduL.SEStandard -Version 1.0.0-rc`
 
 To install the NuGet package via the **.NET Core CLI**,
 
-&emsp;&emsp;`PS> dotnet add package RavinduL.SEStandard`
+&emsp;&emsp;`PS> dotnet add package RavinduL.SEStandard --version 1.0.0-rc`
 
-Should you prefer to manually build the library from its source instead, please refer to the [Contributing](#) section for instructions on how to do so.
+Should you prefer to manually build the library from its source instead, please refer to the [Contributing](#contributing) section for instructions on how to do so.
 
 <br>
 
@@ -198,7 +201,7 @@ WebBrowser.Navigated += WebBrowser_Navigated;
 	When a non-anonymous `StackExchangeClient` object is constructed with a custom access token specified, ensure that it is valid. The `StackExchangeClient` object does not perform validation of the access token.
 
 -	**`min` and `max` Parameters**  
-	`Documentation pending`
+	The `min` and `max` parameters that specify minimum and maximum values that requests are sorted by, are `object`s. To use them, make sure to assign data of the appropriate type (i.e. `DateTime`s for dates, `int` for numeric values, etc.)
 
 <br>
 
@@ -319,7 +322,7 @@ public class CustomStackExchangeClient : StackExchangeClient
 
 <br>
 
-## Contribution
+## Contributing
 
 Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for details on setting up this project for development, repository layout, bug fixing and contributing guidelines, etc.
 
