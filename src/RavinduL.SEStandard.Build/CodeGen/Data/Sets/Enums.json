@@ -1,0 +1,370 @@
+[
+	{
+		"name": "Scopes",
+		"flags": true,
+		"values": [
+			{ "jsonName": "", "name": "None", "value": 0 },
+			{ "jsonName": "read_inbox", "value": 1 },
+			{ "jsonName": "no_expiry", "value": 2 },
+			{ "jsonName": "write_access", "value": 4 },
+			{ "jsonName": "private_info", "value": 8 }
+		]
+	},
+	{
+		"name": "ImplicitAuthenticationError",
+		"values": [
+			{ "jsonName": "invalid_request" },
+			{ "jsonName": "unauthorized_client" },
+			{ "jsonName": "access_denied" },
+			{ "jsonName": "unsupported_response_type" },
+			{ "jsonName": "invalid_scope" },
+			{ "jsonName": "server_error" },
+			{ "jsonName": "temporarily_unavailable" }
+		]
+	},
+	{
+		"name": "ApiError",
+		"description": "<para>Visit https://api.stackexchange.com/docs/error-handling for more information.</para>",
+		"values": [
+			{ "jsonName": "bad_parameter", "value": 400 },
+			{ "jsonName": "access_token_required", "value": 401 },
+			{ "jsonName": "invalid_access_token", "value": 402 },
+			{ "jsonName": "access_denied", "value": 403 },
+			{ "jsonName": "no_method", "value": 404 },
+			{ "jsonName": "key_required", "value": 405 },
+			{ "jsonName": "access_token_compromised", "value": 406 },
+			{ "jsonName": "write_failed", "value": 407 },
+			{ "jsonName": "duplicate_request", "value": 409 },
+			{ "jsonName": "internal_error", "value": 500 },
+			{ "jsonName": "throttle_violation", "value": 502 },
+			{ "jsonName": "temporarily_unavailable", "value": 503 }
+		]
+	},
+	{
+		"name": "UserType",
+		"values": [
+			{ "jsonName": "unregistered" },
+			{ "jsonName": "registered" },
+			{ "jsonName": "moderator" },
+			{ "jsonName": "does_not_exist" }
+		]
+	},
+	{
+		"name": "PostType",
+		"values": [
+			{ "jsonName": "question" },
+			{ "jsonName": "answer" }
+		]
+	},
+	{
+		"name": "BadgeType",
+		"values": [
+			{ "jsonName": "named" },
+			{ "jsonName": "tag_based" }
+		]
+	},
+	{
+		"name": "BadgeRank",
+		"values": [
+			{ "jsonName": "gold" },
+			{ "jsonName": "silver" },
+			{ "jsonName": "bronze" }
+		]
+	},
+	{
+		"name": "EventType",
+		"values": [
+			{ "jsonName": "question_posted" },
+			{ "jsonName": "answer_posted" },
+			{ "jsonName": "comment_posted" },
+			{ "jsonName": "post_edited" },
+			{ "jsonName": "user_created" }
+		]
+	},
+	{
+		"name": "FilterType",
+		"values": [
+			{ "jsonName": "safe" },
+			{ "jsonName": "unsafe" },
+			{ "jsonName": "invalid" }
+		]
+	},
+	{
+		"name": "InboxItemType",
+		"values": [
+			{ "jsonName": "comment" },
+			{ "jsonName": "chat_message" },
+			{ "jsonName": "new_answer" },
+			{ "jsonName": "careers_message" },
+			{ "jsonName": "careers_invitations" },
+			{ "jsonName": "meta_question" },
+			{ "jsonName": "post_notice" },
+			{ "jsonName": "moderator_message" }
+		]
+	},
+	{
+		"name": "SiteState",
+		"values": [
+			{ "jsonName": "normal" },
+			{ "jsonName": "closed_beta" },
+			{ "jsonName": "open_beta" },
+			{ "jsonName": "linked_meta" }
+		]
+	},
+	{
+		"name": "SiteType",
+		"values": [
+			{ "jsonName": "main_site" },
+			{ "jsonName": "meta_site" }
+		]
+	},
+	{
+		"name": "SiteRelation",
+		"values": [
+			{ "jsonName": "parent" },
+			{ "jsonName": "meta" },
+			{ "jsonName": "chat" }
+		]
+	},
+	{
+		"name": "NetworkActivityType",
+		"values": [
+			{ "jsonName": "question_posted" },
+			{ "jsonName": "answer_posted" },
+			{ "jsonName": "badge_earned" },
+			{ "jsonName": "comment_posted" }
+		]
+	},
+	{
+		"name": "NotificationType",
+		"values": [
+			{ "jsonName": "generic" },
+			{ "jsonName": "profile_activity" },
+			{ "jsonName": "bounty_expired" },
+			{ "jsonName": "bounty_expires_in_one_day" },
+			{ "jsonName": "badge_earned" },
+			{ "jsonName": "bounty_expires_in_three_days" },
+			{ "jsonName": "reputation_bonus" },
+			{ "jsonName": "accounts_associated" },
+			{ "jsonName": "new_privilege" },
+			{ "jsonName": "post_migrated" },
+			{ "jsonName": "moderator_message" },
+			{ "jsonName": "registration_reminder" },
+			{ "jsonName": "edit_suggested" },
+			{ "jsonName": "substantive_edit" },
+			{ "jsonName": "bounty_grace_period_started" }
+		]
+	},
+	{
+		"name": "QuestionTimelineType",
+		"values": [
+			{ "jsonName": "question" },
+			{ "jsonName": "answer" },
+			{ "jsonName": "comment" },
+			{ "jsonName": "unaccepted_answer" },
+			{ "jsonName": "accepted_answer" },
+			{ "jsonName": "vote_aggregate" },
+			{ "jsonName": "revision" },
+			{ "jsonName": "post_state_changed" }
+		]
+	},
+	{
+		"name": "VoteType",
+		"values": [
+			{ "jsonName": "accepts" },
+			{ "jsonName": "up_votes" },
+			{ "jsonName": "down_votes" },
+			{ "jsonName": "bounties_offered" },
+			{ "jsonName": "bounties_won" },
+			{ "jsonName": "spam" },
+			{ "jsonName": "suggested_edits" }
+		]
+	},
+	{
+		"name": "ReputationHistoryType",
+		"values": [
+			{ "jsonName": "asker_accepts_answer" },
+			{ "jsonName": "asker_unaccept_answer" },
+			{ "jsonName": "answer_accepted" },
+			{ "jsonName": "answer_unaccepted" },
+			{ "jsonName": "voter_downvotes" },
+			{ "jsonName": "voter_undownvotes" },
+			{ "jsonName": "post_downvoted" },
+			{ "jsonName": "post_undownvoted" },
+			{ "jsonName": "post_upvoted" },
+			{ "jsonName": "post_unupvoted" },
+			{ "jsonName": "suggested_edit_approval_received" },
+			{ "jsonName": "post_flagged_as_spam" },
+			{ "jsonName": "post_flagged_as_offensive" },
+			{ "jsonName": "bounty_given" },
+			{ "jsonName": "bounty_earned" },
+			{ "jsonName": "bounty_cancelled" },
+			{ "jsonName": "post_deleted" },
+			{ "jsonName": "post_undeleted" },
+			{ "jsonName": "association_bonus" },
+			{ "jsonName": "arbitrary_reputation_change" },
+			{ "jsonName": "vote_fraud_reversal" },
+			{ "jsonName": "post_migrated" },
+			{ "jsonName": "user_deleted" },
+			{ "jsonName": "example_upvoted" },
+			{ "jsonName": "example_unupvoted" },
+			{ "jsonName": "proposed_change_approved" },
+			{ "jsonName": "doc_link_upvoted" },
+			{ "jsonName": "doc_link_unupvoted" },
+			{ "jsonName": "doc_source_removed" },
+			{ "jsonName": "suggested_edit_approval_overridden" }
+		]
+	},
+	{
+		"name": "RevisionType",
+		"values": [
+			{ "jsonName": "single_user" },
+			{ "jsonName": "vote_based" }
+		]
+	},
+	{
+		"name": "UserTimelineType",
+		"values": [
+			{ "jsonName": "commented" },
+			{ "jsonName": "asked" },
+			{ "jsonName": "answered" },
+			{ "jsonName": "badge" },
+			{ "jsonName": "revision" },
+			{ "jsonName": "accepted" },
+			{ "jsonName": "reviewed" },
+			{ "jsonName": "suggested" }
+		]
+	},
+	{
+		"name": "Order",
+		"values": [
+			{ "jsonName": "desc", "name": "Descending" },
+			{ "jsonName": "asc", "name": "Ascending" }
+		]
+	},
+	{
+		"name": "PostSort",
+		"values": [
+			{ "jsonName": "activity" },
+			{ "jsonName": "creation" },
+			{ "jsonName": "votes" }
+		]
+	},
+	{
+		"name": "CommentSort",
+		"values": [
+			{ "jsonName": "creation" },
+			{ "jsonName": "votes" }
+		]
+	},
+	{
+		"name": "BadgeSort",
+		"values": [
+			{ "jsonName": "rank" },
+			{ "jsonName": "name" },
+			{ "jsonName": "type" }
+		]
+	},
+	{
+		"name": "TypedBadgeSort",
+		"values": [
+			{ "jsonName": "rank" },
+			{ "jsonName": "name" }
+		]
+	},
+	{
+		"name": "SuggestedEditSort",
+		"values": [
+			{ "jsonName": "creation" },
+			{ "jsonName": "approval" },
+			{ "jsonName": "rejection" }
+		]
+	},
+	{
+		"name": "QuestionSort",
+		"values": [
+			{ "jsonName": "activity" },
+			{ "jsonName": "creation" },
+			{ "jsonName": "votes" },
+			{ "jsonName": "hot" },
+			{ "jsonName": "week" },
+			{ "jsonName": "month" }
+		]
+	},
+	{
+		"name": "RankedQuestionSort",
+		"values": [
+			{ "jsonName": "activity" },
+			{ "jsonName": "creation" },
+			{ "jsonName": "votes" },
+			{ "jsonName": "rank" }
+		]
+	},
+	{
+		"name": "SearchSort",
+		"values": [
+			{ "jsonName": "activity" },
+			{ "jsonName": "creation" },
+			{ "jsonName": "votes" },
+			{ "jsonName": "relevance" }
+		]
+	},
+	{
+		"name": "TagSort",
+		"values": [
+			{ "jsonName": "popular" },
+			{ "jsonName": "activity" },
+			{ "jsonName": "name" }
+		]
+	},
+	{
+		"name": "TagSynonymSort",
+		"values": [
+			{ "jsonName": "creation" },
+			{ "jsonName": "applied" },
+			{ "jsonName": "activity" }
+		]
+	},
+	{
+		"name": "Period",
+		"values": [
+			{ "jsonName": "all_time" },
+			{ "jsonName": "month" }
+		]
+	},
+	{
+		"name": "UserSort",
+		"values": [
+			{ "jsonName": "reputation" },
+			{ "jsonName": "creation" },
+			{ "jsonName": "name" },
+			{ "jsonName": "modified" }
+		]
+	},
+	{
+		"name": "EarnedBadgeSort",
+		"values": [
+			{ "jsonName": "rank" },
+			{ "jsonName": "name" },
+			{ "jsonName": "type" },
+			{ "jsonName": "awarded" }
+		]
+	},
+	{
+		"name": "FavoriteQuestionSort",
+		"values": [
+			{ "jsonName": "activity" },
+			{ "jsonName": "votes" },
+			{ "jsonName": "creation" },
+			{ "jsonName": "added" }
+		]
+	},
+	{
+		"name": "NetworkActivityFilterType",
+		"values": [
+			{ "jsonName": "posts" },
+			{ "jsonName": "badges" },
+			{ "jsonName": "comments" }
+		]
+	}
+]

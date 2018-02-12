@@ -1,0 +1,34 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema",
+
+	"definitions": {
+		"value": {
+			"type": "object",
+			"properties": {
+				"name": { "type": "string" },
+				"jsonName": { "type": "string" },
+				"description": { "type": "string" },
+				"value": { "type": "integer" }
+			},
+			"required": [ "jsonName" ]
+		},
+
+		"enum": {
+			"type": "object",
+			"properties": {
+				"name": { "type": "string" },
+				"description": { "type": "string" },
+				"flags": { "type": "boolean" },
+				"values": { "type": "array", "items": {
+					"$ref": "#/definitions/value"
+				}}
+			},
+			"required": [ "name", "values" ]
+		}
+	},
+
+	"type": "array",
+	"items": {
+		"$ref": "#/definitions/enum"
+	}
+}

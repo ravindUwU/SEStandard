@@ -1,0 +1,2102 @@
+[
+	{
+		"name": "Answers",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/answers",
+				"description": "Returns all the undeleted answers in the system.",
+				"path": "answers",
+				"returnType": "Answer",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort"
+			},
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/answers-by-ids",
+				"description": "Gets the set of answers identified by ids.",
+				"path": "answers/{0}",
+				"returnType": "Answer",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>", "description": "The ids to get." }
+				]
+			},
+			{
+				"name": "Accept",
+				"url": "https://api.stackexchange.com/docs/accept-answer",
+				"description": "Accepts an answer.",
+				"path": "answers/{0}/accept",
+				"returnType": "Answer",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "UndoAccept",
+				"url": "https://api.stackexchange.com/docs/undo-accept-answer",
+				"description": "Undoes an accept on an answer.",
+				"path": "answers/{0}/accept/undo",
+				"returnType": "Answer",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetComments",
+				"url": "https://api.stackexchange.com/docs/comments-on-answers",
+				"description": "Gets the comments on a set of answers.",
+				"path": "answers/{0}/comments",
+				"returnType": "Comment",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "Delete",
+				"url": "https://api.stackexchange.com/docs/delete-answer",
+				"description": "Deletes an answer.",
+				"path": "answers/{0}/delete",
+				"returnType": "Answer",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "Downvote",
+				"url": "https://api.stackexchange.com/docs/downvote-answer",
+				"description": "Downvotes an answer.",
+				"path": "answers/{0}/downvote",
+				"returnType": "Answer",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "UndoDownvote",
+				"url": "https://api.stackexchange.com/docs/undo-downvote-answer",
+				"description": "Undoes a downvote on an answer.",
+				"path": "answers/{0}/downvote/undo",
+				"returnType": "Answer",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "Edit",
+				"url": "https://api.stackexchange.com/docs/edit-answer",
+				"description": "Edits an existing answer.",
+				"path": "answers/{0}/edit",
+				"returnType": "Answer",
+				"post": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "body", "type": "string" },
+					{ "name": "comment", "type": "string" }
+				]
+			},
+			{
+				"name": "GetFlags",
+				"url": "https://api.stackexchange.com/docs/answer-flag-options",
+				"description": "Returns the different flags that the user identified with an access token can create for the answer identified by the specified id.",
+				"path": "answers/{0}/flags/options",
+				"returnType": "FlagOption",
+				"auth": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "AddFlag",
+				"url": "https://api.stackexchange.com/docs/create-answer-flag",
+				"description": "Casts a flag against the answer identified by id.",
+				"path": "answers/{0}/flags/add",
+				"returnType": "Answer",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "option_id", "type": "int" },
+					{ "name": "comment", "type": "string" }
+				]
+			},
+			{
+				"name": "GetQuestions",
+				"url": "https://api.stackexchange.com/docs/questions-by-answer-ids",
+				"description": "Returns the questions that answers identied by the specified ids are on.",
+				"path": "answers/{0}/questions",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "Upvote",
+				"url": "https://api.stackexchange.com/docs/upvote-answer",
+				"description": "Upvotes an answer.",
+				"path": "answers/{0}/upvote",
+				"returnType": "Answer",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "UndoUpvote",
+				"url": "https://api.stackexchange.com/docs/undo-upvote-answer",
+				"description": "Undoes an upvote on a answer.",
+				"path": "answers/{0}/upvote/undo",
+				"returnType": "Answer",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Badges",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/badges",
+				"description": "Returns all the badges in the system.",
+				"path": "badges",
+				"returnType": "Badge",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "BadgeSort",
+				"queries": [
+					{ "name": "inname", "type": "string", "default": "null" }
+				]
+			},
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/badges-by-ids",
+				"description": "Gets the badges identified by the specified ids.",
+				"path": "badges/{0}",
+				"returnType": "Badge",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "BadgeSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetNamed",
+				"url": "https://api.stackexchange.com/docs/badges-by-name",
+				"description": "Gets all explicitly named badges in the system.",
+				"path": "badges/name",
+				"returnType": "Badge",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "TypedBadgeSort",
+				"queries": [
+					{ "name": "inname", "type": "string", "default": "null" }
+				]
+			},
+			{
+				"name": "GetRecepients",
+				"url": "https://api.stackexchange.com/docs/badge-recipients",
+				"description": "Returns recently awarded badges in the system.",
+				"path": "badges/recipients",
+				"returnType": "Badge",
+				"isPaged": true,
+				"isDated": true
+			},
+			{
+				"name": "GetRecipients",
+				"url": "https://api.stackexchange.com/docs/badge-recipients-by-ids",
+				"description" : "Returns recently awarded badges in the system, constrained to a certain set of badges.",
+				"path": "badges/{0}/recipients",
+				"returnType": "Badge",
+				"isPaged": true,
+				"isDated": true,
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetTagged",
+				"url": "https://api.stackexchange.com/docs/badges-by-tag",
+				"description": "Returns the badges that are awarded for participation in specific tags.",
+				"path": "badges/tags",
+				"returnType": "Badge",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "TypedBadgeSort",
+				"queries": [
+					{ "name": "inname", "type": "string", "default": "null" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Comments",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/comments",
+				"description": "Gets all the comments on the site.",
+				"path": "comments",
+				"returnType": "Comment",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort"
+			},
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/comments-by-ids",
+				"description": "Gets the comments identified by the specified ids.",
+				"path": "comments/{0}",
+				"returnType": "Comment",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "Delete",
+				"url": "https://api.stackexchange.com/docs/delete-comment",
+				"description": "Deletes a comment.",
+				"path": "comments/{0}/delete",
+				"returnType": "Comment",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "Edit",
+				"url": "https://api.stackexchange.com/docs/edit-comment",
+				"description": "Edits an existing comment.",
+				"path": "comments/{0}/edit",
+				"returnType": "Comment",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "body", "type": "string" }
+				]
+			},
+			{
+				"name": "AddFlag",
+				"url": "https://api.stackexchange.com/docs/create-comment-flag",
+				"description": "Casts a flag against the comment identified by id.",
+				"path": "comments/{0}/flags/add",
+				"returnType": "Comment",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "option_id", "type": "int" },
+					{ "name": "comment", "type": "string" }
+				]
+			},
+			{
+				"name": "GetFlags",
+				"url": "https://api.stackexchange.com/docs/comment-flag-options",
+				"description": "Returns the different flags that the user identified with an access token can create for the comment identified by the specified id.",
+				"path": "comments/{0}/flags/options",
+				"returnType": "FlagOption",
+				"auth": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "Upvote",
+				"url": "https://api.stackexchange.com/docs/upvote-comment",
+				"description": "Upvotes a comment.",
+				"path": "comments/{0}/upvote",
+				"returnType": "Comment",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "UndoUpvote",
+				"url": "https://api.stackexchange.com/docs/undo-upvote-comment",
+				"description": "Undoes an upvote on a comment.",
+				"path": "comments/{0}/upvote/undo",
+				"returnType": "Comment",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Events",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/events",
+				"description": "Returns a stream of events that have occurred on the site.",
+				"path": "events",
+				"returnType": "Event",
+				"isPaged": true,
+				"auth": true,
+				"queries": [
+					{ "name": "since", "type": "DateTime?", "default": "null" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Info",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/info",
+				"description": "Returns a collection of statistics about the site.",
+				"path": "info",
+				"returnType": "Info"
+			}
+		]
+	},
+	{
+		"name": "Posts",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/posts",
+				"description": "Fetches all posts (questions and answers) on the site.",
+				"path": "posts",
+				"returnType": "Post",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort"
+			},
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/posts-by-ids",
+				"description": "Fetches a set of posts by ids.",
+				"path": "posts/{0}",
+				"returnType": "Post",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetComments",
+				"url": "https://api.stackexchange.com/docs/comments-on-posts",
+				"description": "Gets the comments on the posts identified in ids, regardless of the type of the posts.",
+				"path": "posts/{0}/comments",
+				"returnType": "Comment",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "AddComment",
+				"url": "https://api.stackexchange.com/docs/create-comment",
+				"description": "Create a new comment.",
+				"path": "posts/{0}/comments/add",
+				"returnType": "Comment",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "body", "type": "string" }
+				]
+			},
+			{
+				"name": "RenderComment",
+				"url": "https://api.stackexchange.com/docs/render-comment",
+				"description": "Render a comment given its body and the post it's on.",
+				"path": "posts/{0}/comments/render",
+				"returnType": "Comment",
+				"post": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "body", "type": "string" }
+				]
+			},
+			{
+				"name": "GetRevisions",
+				"url": "https://api.stackexchange.com/docs/revisions-by-ids",
+				"description": "Returns edit revisions for the posts identified by the specified ids.",
+				"path": "posts/{0}/revisions",
+				"returnType": "Revision",
+				"isPaged": true,
+				"isDated": true,
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetSuggestedEdits",
+				"url": "https://api.stackexchange.com/docs/posts-on-suggested-edits",
+				"description": "Returns suggsted edits on the posts identified by the specified ids.",
+				"path": "posts/{0}/suggested-edits",
+				"returnType": "SuggestedEdit",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "SuggestedEditSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Privileges",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/privileges",
+				"description": "Returns the earnable privileges on a site.",
+				"path": "privileges",
+				"returnType": "Privilege",
+				"isPaged": true
+			}
+		]
+	},
+	{
+		"name": "Questions",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/questions",
+				"description": "Gets all the questions on the site.",
+				"path": "questions",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "QuestionSort",
+				"queries": [
+					{ "name": "tagged", "type": "IEnumerable<string>", "default": "null" }
+				]
+			},
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/questions-by-ids",
+				"description": "Returns the questions identified by the specified ids.",
+				"path": "questions/{0}",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetAnswers",
+				"url": "https://api.stackexchange.com/docs/answers-on-questions",
+				"description": "Gets the answers to a set of questions identified by the specified ids.",
+				"path": "questions/{0}/answers",
+				"returnType": "Answer",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "AddAnswer",
+				"url": "https://api.stackexchange.com/docs/create-answer",
+				"description": "Create a new answer on the given question.",
+				"path": "questions/{0}/answers/add",
+				"returnType": "Answer",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "body", "type": "string" }
+				]
+			},
+			{
+				"name": "RenderAnswer",
+				"url": "https://api.stackexchange.com/docs/render-answer",
+				"description": "Render an answer given it's body and the question it's on.",
+				"path": "questions/{0}/answers/render",
+				"returnType": "Answer",
+				"post": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "body", "type": "string" }
+				]
+			},
+			{
+				"name": "GetCloseOptions",
+				"url": "https://api.stackexchange.com/docs/question-close-options",
+				"description": "Returns the flag options that make up close reasons that the user identified with an access token can create for this question.",
+				"path": "questions/{0}/close/options",
+				"returnType": "FlagOption",
+				"auth": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetComments",
+				"url": "https://api.stackexchange.com/docs/comments-on-questions",
+				"description": "Gets the comments on a question.",
+				"path": "questions/{0}/comments",
+				"returnType": "Comment",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "Delete",
+				"url": "https://api.stackexchange.com/docs/delete-question",
+				"description": "Deletes a question.",
+				"path": "question/{0}/delete",
+				"returnType": "Question",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "Downvote",
+				"url": "https://api.stackexchange.com/docs/downvote-question",
+				"description": "Downvotes a question.",
+				"path": "questions/{0}/downvote",
+				"returnType": "Question",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "UndoDownvote",
+				"url": "https://api.stackexchange.com/docs/undo-downvote-question",
+				"description": "Undoes an downvote on a question",
+				"path": "questions/{0}/downvote/undo",
+				"returnType": "Question",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "Edit",
+				"url": "https://api.stackexchange.com/docs/edit-question",
+				"description": "Edit an existing question.",
+				"path": "questions/{0}/edit",
+				"returnType": "Question",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "title", "type": "string" },
+					{ "name": "body", "type": "string" },
+					{ "name": "tags", "type": "IEnumerable<string>" },
+					{ "name": "comment", "type": "string" }
+				]
+			},
+			{
+				"name": "Favorite",
+				"url": "https://api.stackexchange.com/docs/favorite-question",
+				"description": "Favorites a question.",
+				"path": "questions/{0}/favorite",
+				"returnType": "Question",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "UndoFavorite",
+				"url": "https://api.stackexchange.com/docs/undo-favorite-question",
+				"description": "Unfavorites a question.",
+				"path": "question/{0}/favorite/undo",
+				"returnType": "Question",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "AddFlag",
+				"url": "https://api.stackexchange.com/docs/create-question-flag",
+				"description": "Casts a flag (including close votes) against the question identified by the specified ids.",
+				"path": "questions/{0}/flags/add",
+				"returnType": "Question",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "option_id", "type": "int" },
+					{ "name": "comment", "type": "string"},
+					{ "name": "target_site", "type": "string" },
+					{ "name": "question_id", "type": "int"}
+				]
+			},
+			{
+				"name": "GetFlags",
+				"url": "https://api.stackexchange.com/docs/question-flag-options",
+				"description": "Returns the different flags, including close reasons, that the user identified with an access token can create for this question.",
+				"path": "questions/{0}/flags/options",
+				"returnType": "FlagOption",
+				"post": true,
+				"auth": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetLinked",
+				"url": "https://api.stackexchange.com/docs/linked-questions",
+				"description": "Gets questions which link to those questions identified by the specified ids.",
+				"path": "questions/{0}/linked",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort":  "RankedQuestionSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetRelated",
+				"url": "https://api.stackexchange.com/docs/related-questions",
+				"description": "Returns questions that the site considers related to those identified by the specified ids.",
+				"path": "questions/{0}/related",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "RankedQuestionSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetTimeline",
+				"url": "https://api.stackexchange.com/docs/questions-timeline",
+				"description": "Returns a subset of the events that have happened to the questions identified by the specified id.",
+				"path": "questions/{0}/timeline",
+				"returnType": "QuestionTimeline",
+				"isPaged": true,
+				"isDated": true,
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "Upvote",
+				"url": "https://api.stackexchange.com/docs/upvote-question",
+				"description": "Upvotes a question.",
+				"path": "questions/{0}/upvote",
+				"returnType": "Question",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "UndoUpvote",
+				"url": "https://api.stackexchange.com/docs/undo-upvote-question",
+				"description": "Undoes an upvote on a question.",
+				"path": "question/{0}/upvote/undo",
+				"returnType": "Question",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "Add",
+				"url": "https://api.stackexchange.com/docs/create-question",
+				"description": "Create a new question.",
+				"path": "questions/add",
+				"returnType": "Question",
+				"post": true,
+				"isPreviewable": true,
+				"scopes": [ "WriteAccess" ],
+				"queries": [
+					{ "name": "title", "type": "string" },
+					{ "name": "body", "type": "string" },
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "GetFeatured",
+				"url": "https://api.stackexchange.com/docs/featured-questions",
+				"description": "Returns all the questions with active bounties in the system.",
+				"path": "questions/featured",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"queries": [
+					{ "name": "tagged", "type": "IEnumerable<string>", "default": "null" }
+				]
+			},
+			{
+				"name": "GetQuestionsWithNoAnswers",
+				"url": "https://api.stackexchange.com/docs/no-answer-questions",
+				"description": "Returns questions which have received no answers.",
+				"path": "questions/no-answers",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"queries": [
+					{ "name": "tagged", "type": "IEnumerable<string>", "default": "null" }
+				]
+			},
+			{
+				"name": "Render",
+				"url": "https://api.stackexchange.com/docs/render-question",
+				"description": "Renders a question given it's fields.",
+				"path": "questions/render",
+				"returnType": "Question",
+				"post": true,
+				"queries": [
+					{ "name": "title", "type": "string" },
+					{ "name": "body", "type": "string" },
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "GetUnanswered",
+				"url": "https://api.stackexchange.com/docs/unanswered-questions",
+				"description": "Returns questions the site considers to be unanswered.",
+				"path": "questions/unanswered",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"queries": [
+					{ "name": "tagged", "type": "IEnumerable<string>", "default": "null" }
+				]
+			},
+			{
+				"name": "GetUnansweredOfMyTags",
+				"url": "https://api.stackexchange.com/docs/unanswered-questions-my-tags",
+				"description": "Returns questions the site considers to be unanswered, which are within a user's favorite, or if not, frequented tags.",
+				"path": "questions/unanswered/my-tags",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"auth": true
+			}
+		]
+	},
+	{
+		"name": "Revisions",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/revisions-by-guids",
+				"description": "Returns edit revisions identified by the specified ids.",
+				"path": "revisions/{0}",
+				"returnType": "Revision",
+				"isPaged": true,
+				"isDated": true,
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<Guid>" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Search",
+		"methods": [
+			{
+				"name": "SearchQuestions",
+				"url": "https://api.stackexchange.com/docs/search",
+				"description": "Searches a site for any questions which fit the given criteria.",
+				"path": "search",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "SearchSort",
+				"queries": [
+					{ "name": "tagged", "type": "IEnumerable<string>", "default": "null" },
+					{ "name": "nottagged", "type": "IEnumerable<string>", "default": "null" },
+					{ "name": "intitle", "type": "string", "default": "null" }
+				]
+			},
+			{
+				"name": "AdvancedSearch",
+				"url": "https://api.stackexchange.com/docs/advanced-search",
+				"description": "Searches a site for any questions which fit the given criteria.",
+				"path": "search/advanced",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "SearchSort",
+				"queries": [
+					{ "name": "q", "type": "string", "default": "null" },
+					{ "name": "accepted", "type": "bool?", "default": "null" },
+					{ "name": "answers", "type": "int?", "default": "null" },
+					{ "name": "body", "type": "string", "default": "null" },
+					{ "name": "closed", "type": "bool?", "default": "null" },
+					{ "name": "migrated", "type": "bool?", "default": "null" },
+					{ "name": "notice", "type": "bool?", "default": "null" },
+					{ "name": "nottagged", "type": "IEnumerable<string>", "default": "null" },
+					{ "name": "tagged", "type": "IEnumerable<string>", "default": "null" },
+					{ "name": "title", "type": "string", "default": "null" },
+					{ "name": "user", "type": "int?", "default": "null" },
+					{ "name": "url", "type": "string", "default": "null" },
+					{ "name": "views", "type": "int?", "default": "null" },
+					{ "name": "wiki", "type": "bool?", "default": "null" }
+				]
+			},
+			{
+				"name": "GetSimilar",
+				"url": "https://api.stackexchange.com/docs/similar",
+				"description": "Returns questions which are similar to a hypothetical one based on a title and tag combination.",
+				"path": "similar",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "SearchSort",
+				"queries": [
+					{ "name": "title", "type": "string" },
+					{ "name": "tagged", "type": "IEnumerable<string>", "default": "null" },
+					{ "name": "nottagged", "type": "IEnumerable<string>", "default": "null" }
+				]
+			},
+			{
+				"name": "SearchExcerpts",
+				"url": "https://api.stackexchange.com/docs/excerpt-search",
+				"description": "Searches a site for items which match the given criteria.",
+				"path": "search/excerpts",
+				"returnType": "SearchExcerpt",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "SearchSort",
+				"queries": [
+					{ "name": "q", "type": "string", "default": "null" },
+					{ "name": "accepted", "type": "bool?", "default": "null" },
+					{ "name": "answers", "type": "int?", "default": "null" },
+					{ "name": "body", "type": "string", "default": "null" },
+					{ "name": "closed", "type": "bool?", "default": "null" },
+					{ "name": "migrated", "type": "bool?", "default": "null" },
+					{ "name": "notice", "type": "bool?", "default": "null" },
+					{ "name": "nottagged", "type": "IEnumerable<string>", "default": "null" },
+					{ "name": "tagged", "type": "IEnumerable<string>", "default": "null" },
+					{ "name": "title", "type": "string", "default": "null" },
+					{ "name": "user", "type": "int?", "default": "null" },
+					{ "name": "url", "type": "string", "default": "null" },
+					{ "name": "views", "type": "int?", "default": "null" },
+					{ "name": "wiki", "type": "bool?", "default": "null" }
+				]
+			}
+		]
+	},
+	{
+		"name": "SuggestedEdits",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/suggested-edits",
+				"description": "Returns all the suggested edits in the systems.",
+				"path": "suggested-edits",
+				"returnType": "SuggestedEdit",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "SuggestedEditSort"
+			},
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/suggested-edits-by-ids",
+				"description": "Returns suggested edits identified by the specified ids.",
+				"path": "suggested-edits/{0}",
+				"returnType": "SuggestedEdit",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "SuggestedEditSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Tags",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/tags",
+				"description": "Returns the tags found on a site.",
+				"path": "tags",
+				"returnType": "Tag",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "TagSort",
+				"queries": [
+					{ "name": "inname", "type": "string", "default": "null" }
+				]
+			},
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/tags-by-name",
+				"description": "Returns tag objects representing the specified tags, found on the site.",
+				"path": "tags/{0}/info",
+				"returnType": "Tag",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "TagSort",
+				"paths": [
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "GetModeratorOnly",
+				"url": "https://api.stackexchange.com/docs/moderator-only-tags",
+				"description": "Returns the tags found on a site that only moderators can use.",
+				"path": "tags/moderator-only",
+				"returnType": "Tag",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "TagSort",
+				"queries": [
+					{ "name": "inname", "type": "string", "default": "null" }
+				]
+			},
+			{
+				"name": "GetRequired",
+				"url": "https://api.stackexchange.com/docs/required-tags",
+				"description": "Returns the tags found on a site that fulfill required tag constraints on questions.",
+				"path": "tags/required",
+				"returnType": "Tag",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "TagSort",
+				"queries": [
+					{ "name": "inname", "type": "string", "default": "null" }
+				]
+			},
+			{
+				"name": "GetSynonyms",
+				"url": "https://api.stackexchange.com/docs/tag-synonyms",
+				"description": "Returns all tag synonyms found on the site.",
+				"path": "tags/synonyms",
+				"returnType": "TagSynonym",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "TagSynonymSort"
+			},
+			{
+				"name": "GetFaqs",
+				"url": "https://api.stackexchange.com/docs/faqs-by-tags",
+				"description": "Returns the frequently asked questions for the specified set of tags.",
+				"path": "tags/{0}/faq",
+				"returnType": "Question",
+				"isPaged": true,
+				"paths": [
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "GetRelated",
+				"url": "https://api.stackexchange.com/docs/related-tags",
+				"description": "Returns the tags that are most related to the specified tags.",
+				"path": "tags/{0}/related",
+				"returnType": "Tag",
+				"isPaged": true,
+				"paths": [
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "GetSynonyms",
+				"url": "https://api.stackexchange.com/docs/synonyms-by-tags",
+				"description": "Gets all the synonyms that point to the specified tags.",
+				"path": "tags/{0}/synonyms",
+				"returnType": "TagSynonym",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "TagSynonymSort",
+				"paths": [
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "GetTopAnswerers",
+				"url": "https://api.stackexchange.com/docs/top-answerers-on-tags",
+				"description": "Returns the top 30 answerers active in a single tag, of either all-time or the last 30 days.",
+				"path": "tags/{0}/top-answerers/{1}",
+				"returnType": "TagScore",
+				"isPaged": true,
+				"paths": [
+					{ "name": "tag", "type": "string" },
+					{ "name": "period", "type": "Period" }
+				]
+			},
+			{
+				"name": "GetTopAskers",
+				"url": "https://api.stackexchange.com/docs/top-askers-on-tags",
+				"description": "Returns the top 30 askers active in a single tag, of either all-time or the last 30 days.",
+				"path": "tags/{0}/top-askers/{1}",
+				"returnType": "TagScore",
+				"isPaged": true,
+				"paths": [
+					{ "name": "tag", "type": "string" },
+					{ "name": "period", "type": "Period" }
+				]
+			},
+			{
+				"name": "GetWikis",
+				"url": "https://api.stackexchange.com/docs/wikis-by-tags",
+				"description": "Returns the wikis that go with the specified set of tags.",
+				"path": "tags/{0}/wikis",
+				"returnType": "TagWiki",
+				"isPaged": true,
+				"paths": [
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Users",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/users",
+				"description": "Returns all users on a site.",
+				"path": "users",
+				"returnType": "User",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "UserSort",
+				"queries": [
+					{ "name": "inname", "type": "string", "default": "null" }
+				]
+			},
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/users-by-ids",
+				"description": "Gets the users identified by the specified ids.",
+				"path": "users/{0}",
+				"returnType": "User",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "UserSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetAnswers",
+				"url": "https://api.stackexchange.com/docs/answers-on-users",
+				"description": "Returns the answers the users identified by the specified ids have posted.",
+				"path": "users/{0}/answers",
+				"returnType": "Answer",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetBadges",
+				"url": "https://api.stackexchange.com/docs/badges-on-users",
+				"description": "Get the badges the users identified by the specified ids have earned.",
+				"path": "users/{0}/badges",
+				"returnType": "Badge",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "EarnedBadgeSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetComments",
+				"url": "https://api.stackexchange.com/docs/comments-on-users",
+				"description": "Get the comments posted by users identified by the specified ids.",
+				"path": "users/{0}/comments",
+				"returnType": "Comment",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetComments",
+				"url": "https://api.stackexchange.com/docs/comments-by-users-to-user",
+				"description": "Get the comments that the users identified by the specified ids have posted in reply to the single user identified in by the specified toid.",
+				"path": "users/{0}/comments/{1}",
+				"returnType": "Comment",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" },
+					{ "name": "toid", "type": "int" }
+				]
+			},
+			{
+				"name": "GetFavorites",
+				"url": "https://api.stackexchange.com/docs/favorites-on-users",
+				"description": "Get the questions that users identified by the specified have favorited.",
+				"path": "users/{0}/favorites",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "FavoriteQuestionSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetMentioned",
+				"url": "https://api.stackexchange.com/docs/mentions-on-users",
+				"description": "Gets all the comments that the users identified by the specified ids were mentioned in.",
+				"path": "users/{0}/mentioned",
+				"returnType": "Comment",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetNetworkActivity",
+				"url": "https://api.stackexchange.com/docs/users-network-activity",
+				"description": "Returns a summary of a user's activity across the Stack Exchange network, given their account_id.",
+				"path": "users/{0}/network-activity",
+				"returnType": "NetworkActivity",
+				"isPaged": true,
+				"isDated": true,
+				"isNetworkMethod": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "types", "type": "IEnumerable<NetworkActivityFilterType>", "default": "null" }
+				]
+			},
+			{
+				"name": "GetNotifications",
+				"url": "https://api.stackexchange.com/docs/user-notifications",
+				"description": "Returns a user's notifications.",
+				"path": "users/{0}/notifications",
+				"returnType": "Notification",
+				"isPaged": true,
+				"scopes": [ "ReadInbox" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetUnreadNotifications",
+				"url": "https://api.stackexchange.com/docs/user-unread-notifications",
+				"description": "Returns a user's unread notifications.",
+				"path": "users/{0}/notifications/unread",
+				"returnType": "Notification",
+				"isPaged": true,
+				"scopes": [ "ReadInbox" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetPosts",
+				"url": "https://api.stackexchange.com/docs/posts-on-users",
+				"description": "Returns the posts the users identified by the specified ids have posted.",
+				"path": "users/{0}/posts",
+				"returnType": "Post",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetPrivileges",
+				"url": "https://api.stackexchange.com/docs/privileges-on-users",
+				"description": "Returns the privileges a user has.",
+				"path": "users/{0}/privileges",
+				"returnType": "Privilege",
+				"isPaged": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetQuestions",
+				"url": "https://api.stackexchange.com/docs/questions-on-users",
+				"description": "Gets the questions asked by the users identified by the specified ids.",
+				"path": "users/{0}/questions",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetFeaturedQuestions",
+				"url": "https://api.stackexchange.com/docs/featured-questions-on-users",
+				"description": "Gets the questions on which the users identified by the specified ids have active bounties.",
+				"path": "users/{0}/questions/featured",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetQuestionsWithNoAnswers",
+				"url": "https://api.stackexchange.com/docs/no-answer-questions-on-users",
+				"description": "Gets the questions asked by the users identfied by the specified ids, which have no answers.",
+				"path": "users/{0}/questions/no-answers",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetQuestionsWithUnacceptedAnswers",
+				"url": "https://api.stackexchange.com/docs/unaccepted-questions-on-users",
+				"description": "Gets the questions asked by the users identified by the specified ids which have at least one answer, but no accepted answer.",
+				"path": "users/{0}/questions/unaccepted",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetUnansweredQuestions",
+				"url": "https://api.stackexchange.com/docs/unanswered-questions-on-users",
+				"description": "Gets the questions asked by the users identified by the specified ids which the site considers unanswered, while still having at least one answer posted.",
+				"path": "users/{0}/questions/unanswered",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetReputation",
+				"url": "https://api.stackexchange.com/docs/reputation-on-users",
+				"description": "Gets a subset of the reputation changes for users identified by the specified.",
+				"path": "users/{0}/reputation",
+				"returnType": "Reputation",
+				"isPaged": true,
+				"isDated": true,
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetReputationHistory",
+				"url": "https://api.stackexchange.com/docs/reputation-history",
+				"description": "Returns users' public reputation history.",
+				"path": "users/{0}/reputation-history",
+				"returnType": "ReputationHistory",
+				"isPaged": true,
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetFullReputationHistory",
+				"url": "https://api.stackexchange.com/docs/full-reputation-history",
+				"description": "Returns a user's full reputation history, including private events.",
+				"path": "users/{0}/reputation-history/full",
+				"returnType": "ReputationHistory",
+				"isPaged": true,
+				"scopes": [ "PrivateInfo" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetSuggestedEdits",
+				"url": "https://api.stackexchange.com/docs/suggested-edits-on-users",
+				"description": "Returns the suggested edits that the users identified by the specified ids have submitted.",
+				"path": "users/{0}/suggested-edits",
+				"returnType": "SuggestedEdit",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "SuggestedEditSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetTags",
+				"url": "https://api.stackexchange.com/docs/tags-on-users",
+				"description": "Returns the tags the users identified by the specified ids have been active in.",
+				"path": "users/{0}/tags",
+				"returnType": "Tag",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "TagSort",
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetTopAnswersForTag",
+				"url": "https://api.stackexchange.com/docs/top-user-answers-in-tags",
+				"description": "Returns the top 30 answers a user has posted in response to questions with the given tags.",
+				"path": "users/{0}/tags/{1}/top-answers",
+				"returnType": "Answer",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "id", "type": "int" },
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "GetTopQuestionsForTag",
+				"url": "https://api.stackexchange.com/docs/top-user-questions-in-tags",
+				"description": "Returns the top 30 questions a user has asked with the given tags.",
+				"path": "users/{0}/tags/{1}/top-questions",
+				"returnType": "Question",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "id", "type": "int" },
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "GetTimeline",
+				"url": "https://api.stackexchange.com/docs/timeline-on-users",
+				"description": "Returns a subset of the actions the users identified by the specified ids have taken on the site.",
+				"path": "users/{0}/timeline",
+				"returnType": "UserTimeline",
+				"isPaged": true,
+				"isDated": true,
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			},
+			{
+				"name": "GetTopAnswerTags",
+				"url": "https://api.stackexchange.com/docs/top-answer-tags-on-users",
+				"description": "Returns a single user's top tags by answer score.",
+				"path": "users/{0}/top-answer-tags",
+				"returnType": "TopTag",
+				"isPaged": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetTopQuestionTags",
+				"url": "https://api.stackexchange.com/docs/top-question-tags-on-users",
+				"description": "Returns a single user's top tags by question score.",
+				"path": "users/{0}/top-question-tags",
+				"returnType": "TopTag",
+				"isPaged": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetTopTags",
+				"url": "https://api.stackexchange.com/docs/top-tags-on-users",
+				"description": "Returns a single user's top tags by combined question and answer score.",
+				"path": "users/{0}/top-tags",
+				"returnType": "TopTag",
+				"isPaged": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetModerators",
+				"url": "https://api.stackexchange.com/docs/moderators",
+				"description": "Gets the users on a site who can exercise moderation powers.",
+				"path": "users/moderators",
+				"returnType": "User",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "UserSort"
+			},
+			{
+				"name": "GetElectedModerators",
+				"url": "https://api.stackexchange.com/docs/elected-moderators",
+				"description": "Returns the users on a site who both have moderator powers, and were actually elected.",
+				"path": "users/moderators/elected",
+				"returnType": "User",
+				"isPaged": true,
+				"isDated": true,
+				"sort": "UserSort"
+			},
+			{
+				"name": "GetInbox",
+				"url": "https://api.stackexchange.com/docs/user-inbox",
+				"description": "Returns a user's inbox.",
+				"path": "users/{0}/inbox",
+				"returnType": "InboxItem",
+				"isPaged": true,
+				"scopes": [ "ReadInbox" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			},
+			{
+				"name": "GetUnreadInbox",
+				"url": "https://api.stackexchange.com/docs/user-unread-inbox",
+				"description": "Returns the unread items in a user's inbox.",
+				"path": "users/{0}/inbox/unread",
+				"returnType": "InboxItem",
+				"isPaged": true,
+				"scopes": [ "ReadInbox" ],
+				"paths": [
+					{ "name": "id", "type": "int" }
+				],
+				"queries": [
+					{ "name": "since", "type": "DateTime?", "default": "null" }
+				]
+			},
+			{
+				"name": "GetAssociatedAccounts",
+				"url": "https://api.stackexchange.com/docs/associated-users",
+				"description": "Returns all of a user's associated accounts, given their account ids.",
+				"path": "users/{0}/associated",
+				"returnType": "NetworkUser",
+				"isNetworkMethod": true,
+				"isPaged": true,
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				],
+				"queries": [
+					{ "name": "types", "type": "IEnumerable<SiteType>", "default": "null" }
+				]
+			},
+			{
+				"name": "GetAccountMerges",
+				"url": "https://api.stackexchange.com/docs/merge-history",
+				"description": "Returns a record of merges that have occurred involving the passed account ids.",
+				"path": "users/{0}/merges",
+				"returnType": "AccountMerge",
+				"isNetworkMethod": true,
+				"isPaged": true,
+				"paths": [
+					{ "name": "ids", "type": "IEnumerable<int>" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Me",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/me",
+				"description": "Returns the user associated with the passed access token.",
+				"path": "me",
+				"returnType": "User",
+				"auth": true
+			},
+			{
+				"name": "GetAnswers",
+				"url": "https://api.stackexchange.com/docs/me-answers",
+				"description": "Returns the answers owned by the user associated with the given access token.",
+				"path": "me/answers",
+				"returnType": "Answer",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort"
+			},
+			{
+				"name": "GetBadges",
+				"url": "https://api.stackexchange.com/docs/me-badges",
+				"description": "Returns the badges earned by the user associated with the given access token.",
+				"path": "me/badges",
+				"returnType": "Badge",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "BadgeSort"
+			},
+			{
+				"name": "GetComments",
+				"url": "https://api.stackexchange.com/docs/me-comments",
+				"description": "Returns the comments owned by the user associated with the given access token.",
+				"path": "me/comments",
+				"returnType": "Comment",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort"
+			},
+			{
+				"name": "GetComments",
+				"url": "https://api.stackexchange.com/docs/me-comments-to",
+				"description": "Returns the comments owned by the user associated with the given access token that are in reply to the user identified by toId.",
+				"path": "me/comments/{0}",
+				"returnType": "Comment",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort",
+				"paths": [
+					{ "name": "toId", "type": "int" }
+				]
+			},
+			{
+				"name": "GetFavorites",
+				"url": "https://api.stackexchange.com/docs/me-favorites",
+				"description": "Returns the questions favorites by the user associated with the given access token.",
+				"path": "me/favorites",
+				"returnType": "Question",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "FavoriteQuestionSort"
+			},
+			{
+				"name": "GetMentioned",
+				"url": "https://api.stackexchange.com/docs/me-mentioned",
+				"description": "Returns the comments mentioning the user associated with the given access token.",
+				"path": "me/mentioned",
+				"returnType": "Comment",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "CommentSort"
+			},
+			{
+				"name": "GetNetworkActivity",
+				"url": "https://api.stackexchange.com/docs/me-network-activity",
+				"description": "Returns a summary of a user's activity across the Stack Exchange network, given an access token for them.",
+				"path": "me/network-activity",
+				"returnType": "NetworkActivity",
+				"auth": true,
+				"isPaged": true,
+				"isNetworkMethod": true,
+				"queries": [
+					{ "name": "types", "type": "IEnumerable<NetworkActivityFilterType>", "default": "null" }
+				]
+			},
+			{
+				"name": "GetNotifications",
+				"url": "https://api.stackexchange.com/docs/me-notifications",
+				"description": "Returns a user's notifications, given an access token.",
+				"path": "me/notifications",
+				"returnType": "Notification",
+				"isPaged": true,
+				"scopes": [ "ReadInbox" ]
+			},
+			{
+				"name": "GetUnreadNotifications",
+				"url": "https://api.stackexchange.com/docs/me-unread-notifications",
+				"description": "Returns a user's unread notifications, given an access token.",
+				"path": "me/notifications/unread",
+				"returnType": "Notification",
+				"isPaged": true,
+				"scopes": [ "ReadInbox" ]
+			},
+			{
+				"name": "GetPosts",
+				"url": "https://api.stackexchange.com/docs/me-posts",
+				"description": "Returns the posts owned by the user associated with the given access token.",
+				"path": "me/posts",
+				"returnType": "Post",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort"
+			},
+			{
+				"name": "GetPrivileges",
+				"url": "https://api.stackexchange.com/docs/me-privileges",
+				"description": "Returns the privileges the user identified by access token has.",
+				"path": "me/privileges",
+				"returnType": "Privilege",
+				"auth": true,
+				"isPaged": true
+			},
+			{
+				"name": "GetQuestions",
+				"url": "https://api.stackexchange.com/docs/me-questions",
+				"description": "Returns the questions owned by the user associated with the given access token.",
+				"path": "me/questions",
+				"returnType": "Question",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort"
+			},
+			{
+				"name": "GetFeaturedQuestions",
+				"url": "https://api.stackexchange.com/docs/me-featured-questions",
+				"description": "Returns the questions that have active bounties offered by the user associated with the given access_token.",
+				"path": "me/questions/featured",
+				"returnType": "Question",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort"
+			},
+			{
+				"name": "GetQuestionsWithNoAnswers",
+				"url": "https://api.stackexchange.com/docs/me-no-answer-questions",
+				"description": "Returns the questions owned by the user associated with the given access token that have no answers.",
+				"path": "me/questions/no-answers",
+				"returnType": "Question",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort"
+			},
+			{
+				"name": "GetUnacceptedQuestions",
+				"url": "https://api.stackexchange.com/docs/me-unaccepted-questions",
+				"description": "Returns the questions owned by the user associated with the given access token that have no accepted answer.",
+				"path": "me/questions/unaccepted",
+				"returnType": "Question",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort"
+			},
+			{
+				"name": "GetUnansweredQuestions",
+				"url": "https://api.stackexchange.com/docs/me-unanswered-questions",
+				"description": "Returns the questions owned by the user associated with the given access token that are not considered answered.",
+				"path": "me/questions/unanswered",
+				"returnType": "Question",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort"
+			},
+			{
+				"name": "GetReputation",
+				"url": "https://api.stackexchange.com/docs/me-reputation",
+				"description": "Returns the reputation changed for the user associated with the given access token.",
+				"path": "me/reputation",
+				"returnType": "Reputation",
+				"auth": true
+			},
+			{
+				"name": "GetReputationHistory",
+				"url": "https://api.stackexchange.com/docs/me-reputation-history",
+				"description": "Returns user's public reputation history.",
+				"path": "me/reputation-history",
+				"returnType": "ReputationHistory",
+				"auth": true,
+				"isPaged": true
+			},
+			{
+				"name": "GetFullReputationHistory",
+				"url": "https://api.stackexchange.com/docs/me-full-reputation-history",
+				"description": "Returns user's full reputation history, including private events.",
+				"path": "me/reputation-history/full",
+				"returnType": "ReputationHistory",
+				"auth": true,
+				"isPaged": true
+			},
+			{
+				"name": "GetSuggestedEdits",
+				"url": "https://api.stackexchange.com/docs/me-suggested-edits",
+				"description": "Returns the suggested edits the user identified by access token has submitted.",
+				"path": "me/suggested-edits",
+				"returnType": "SuggestedEdit",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "SuggestedEditSort"
+			},
+			{
+				"name": "GetTags",
+				"url": "https://api.stackexchange.com/docs/me-tags",
+				"description": "Returns the tags the user identified by the access token passed is active in.",
+				"path": "me/tags",
+				"returnType": "Tag",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "TagSort"
+			},
+			{
+				"name": "GetTopAnswersForTags",
+				"url": "https://api.stackexchange.com/docs/me-tags-top-answers",
+				"description": "Returns the top 30 answers the user associated with the given access token has posted in response to questions with the given tags.",
+				"path": "me/tags/{0}/top-answers",
+				"returnType": "Answer",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "PostSort",
+				"paths": [
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "GetTopQuestionsForTags",
+				"url": "https://api.stackexchange.com/docs/me-tags-top-questions",
+				"description": "Returns the top 30 questions the user associated with the given access token has posted in response to questions with the given tags.",
+				"path": "me/tags/{0}/top-questions",
+				"returnType": "Question",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true,
+				"sort": "QuestionSort",
+				"paths": [
+					{ "name": "tags", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "GetTimeline",
+				"url": "https://api.stackexchange.com/docs/me-timeline",
+				"description": "Returns a subset of the actions the user identified by the passed access token has taken on the site.",
+				"path": "me/timeline",
+				"returnType": "UserTimeline",
+				"auth": true,
+				"isPaged": true,
+				"isDated": true
+			},
+			{
+				"name": "GetTopAnswerTags",
+				"url": "https://api.stackexchange.com/docs/me-top-answer-tags",
+				"description": "Returns the user identified by access token's top 30 tags by answer score.",
+				"path": "me/top-answer-tags",
+				"returnType": "TopTag",
+				"auth": true,
+				"isPaged": true
+			},
+			{
+				"name": "GetTopQuestionTags",
+				"url": "https://api.stackexchange.com/docs/me-top-question-tags",
+				"description": "Returns the user identified by access token's top 30 tags by question score.",
+				"path": "me/top-question-tags",
+				"returnType": "TopTag",
+				"auth": true,
+				"isPaged": true
+			},
+			{
+				"name": "GetTopTags",
+				"url": "https://api.stackexchange.com/docs/me-top-tags",
+				"description": "Returns the user identified by access token's top 30 tags by combined question and answer score.",
+				"path": "me/top-tags",
+				"returnType": "TopTag",
+				"auth": true,
+				"isPaged": true
+			},
+			{
+				"name": "GetInbox",
+				"url": "https://api.stackexchange.com/docs/me-inbox",
+				"description": "Returns the user identified by access_token's inbox.",
+				"path": "me/inbox",
+				"returnType": "InboxItem",
+				"scopes": [ "ReadInbox" ],
+				"isPaged": true
+			},
+			{
+				"name": "GetUnreadInbox",
+				"url": "https://api.stackexchange.com/docs/me-unread-inbox",
+				"description": "Returns the unread items in the user identified by access_token's inbox.",
+				"path": "me/inbox/unread",
+				"returnType": "InboxItem",
+				"scopes": [ "ReadInbox" ],
+				"isPaged": true,
+				"queries": [
+					{ "name": "since", "type": "DateTime?", "default": "null" }
+				]
+			},
+			{
+				"name": "GetAssociatedAccounts",
+				"url": "https://api.stackexchange.com/docs/me-associated-users",
+				"description": "Returns all of a user's associated accounts, given an access token for them.",
+				"path": "me/associated",
+				"returnType": "NetworkUser",
+				"auth": true,
+				"isNetworkMethod": true,
+				"isPaged": true,
+				"queries": [
+					{ "name": "types", "type": "IEnumerable<SiteType>", "default": "null" }
+				]
+			},
+			{
+				"name": "GetAccountMerges",
+				"url": "https://api.stackexchange.com/docs/me-merge-history",
+				"description": "Returns a record of merges that have occurred involving a user identified by an access token.",
+				"path": "me/merges",
+				"returnType": "AccountMerge",
+				"auth": true,
+				"isNetworkMethod": true,
+				"isPaged": true
+			}
+		]
+	},
+	{
+		"name": "AccessTokens",
+		"methods": [
+			{
+				"name": "Invalidate",
+				"url": "https://api.stackexchange.com/docs/invalidate-access-tokens",
+				"description": "Immediately expires the access tokens passed. This method is meant to allow an application to discard any active access tokens it no longer needs.",
+				"path": "access-tokens/{0}/invalidate",
+				"returnType": "AccessToken",
+				"isNetworkMethod": true,
+				"isPaged": true,
+				"paths": [
+					{ "name": "accessTokens", "type": "IEnumerable<string>" }
+				]
+			},
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/read-access-tokens",
+				"description": "Reads the properties for a set of access tokens.",
+				"path": "access-tokens/{0}",
+				"returnType": "AccessToken",
+				"isNetworkMethod": true,
+				"isPaged": true,
+				"paths": [
+					{ "name": "accessTokens", "type": "IEnumerable<string>" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Applications",
+		"methods": [
+			{
+				"name": "DeAuthenticate",
+				"url": "https://api.stackexchange.com/docs/application-de-authenticate",
+				"description": "Passing valid access tokens to this method causes the application that created them to be de-authorized by the user associated with each access token.",
+				"path": "apps/{0}/de-authenticate",
+				"returnType": "AccessToken",
+				"isNetworkMethod": true,
+				"isPaged": true,
+				"paths": [
+					{ "name": "accessTokens", "type": "IEnumerable<string>" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Errors",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/errors",
+				"description": "Returns the various error codes that can be produced by the API.",
+				"path": "errors",
+				"returnType": "Error",
+				"isNetworkMethod": true,
+				"isPaged": true
+			},
+			{
+				"name": "Simulate",
+				"url": "https://api.stackexchange.com/docs/simulate-error",
+				"description": "This method allows you to generate an error.",
+				"path": "errors/{0}",
+				"returnType": "Error",
+				"isNetworkMethod": true,
+				"paths": [
+					{ "name": "id", "type": "int" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Filters",
+		"methods": [
+			{
+				"name": "Create",
+				"url": "https://api.stackexchange.com/docs/create-filter",
+				"description": "Creates a new filter given a list of includes, excludes, a base filter, and whether or not this filter should be \"unsafe\".",
+				"path": "filters/create",
+				"returnType": "Filter",
+				"isNetworkMethod": true,
+				"queries": [
+					{ "name": "include", "type": "IEnumerable<string>", "default": "null" },
+					{ "name": "exclude", "type": "IEnumerable<string>", "default": "null" },
+					{ "name": "base", "type": "string", "default": "null" },
+					{ "name": "unsafe", "type": "bool", "default": "false" }
+				]
+			},
+			{
+				"name": "Read",
+				"url": "https://api.stackexchange.com/docs/read-filter",
+				"description": "Returns the fields included by the given filters, and the \"safeness\" of those filters.",
+				"path": "filters/{0}",
+				"returnType": "Filter",
+				"isNetworkMethod": true,
+				"paths": [
+					{ "name": "filters", "type": "IEnumerable<string>" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Inbox",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/inbox",
+				"description": "Returns a user's inbox.",
+				"path": "inbox",
+				"returnType": "InboxItem",
+				"scopes": [ "ReadInbox" ],
+				"isNetworkMethod": true,
+				"isPaged": true
+			},
+			{
+				"name": "GetUnread",
+				"url": "https://api.stackexchange.com/docs/inbox-unread",
+				"description": "Returns the unread items in a user's inbox.",
+				"path": "inbox/unread",
+				"returnType": "InboxItem",
+				"scopes": [ "ReadInbox" ],
+				"isNetworkMethod": true,
+				"isPaged": true,
+				"queries": [
+					{ "name": "since", "type": "DateTime?", "default": "null" }
+				]
+			}
+		]
+	},
+	{
+		"name": "Notifications",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/notifications",
+				"description": "Returns a user's notifications.",
+				"path": "notifications",
+				"returnType": "Notification",
+				"scopes": [ "ReadInbox" ],
+				"isNetworkMethod": true,
+				"isPaged": true
+			},
+			{
+				"name": "GetUnread",
+				"url": "https://api.stackexchange.com/docs/unread-notifications",
+				"description": "Returns a user's unread notifications.",
+				"path": "notifications/unread",
+				"returnType": "Notification",
+				"scopes": [ "ReadInbox" ],
+				"isNetworkMethod": true,
+				"isPaged": true
+			}
+		]
+	},
+	{
+		"name": "Sites",
+		"methods": [
+			{
+				"name": "Get",
+				"url": "https://api.stackexchange.com/docs/sites",
+				"description": "Returns all sites in the network.",
+				"path": "sites",
+				"returnType": "Site",
+				"isNetworkMethod": true,
+				"isPaged": true
+			}
+		]
+	}
+]

@@ -1,0 +1,18 @@
+﻿namespace RavinduL.SEStandard.Tests.Unit
+{
+	using RavinduL.SEStandard.Models;
+	using Xunit;
+
+	public partial class StringConversionTests
+	{
+		[Fact]
+		public void ConvertToString_ConvertsEnumsToStrings()
+		{
+			{{ #each this }}
+			{{ #each Values }}
+			Assert.Equal("{{ JsonName }}", endpoint.ConvertToString({{ ../Name }}.{{ Name }}));
+			{{ /each }}
+			{{ /each }}
+		}
+	}
+}

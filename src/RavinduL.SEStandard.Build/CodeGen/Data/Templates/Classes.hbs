@@ -1,0 +1,27 @@
+﻿namespace RavinduL.SEStandard.Models
+{
+	using Newtonsoft.Json;
+	using System.Collections.Generic;
+
+	{{ #if HasDescriptionOrUrl }}
+	/// <summary>
+	{{ #if Description }}/// {{ Description }}{{ /if }}
+	{{ #if Url }}/// <para>Visit {{ Url }} for more information.</para>{{ /if }}
+	/// </summary>
+	{{ /if }}
+	public class {{ Name }}{{ #if Suffix }} {{ Suffix }}{{ /if }}
+	{
+		{{ #each Properties }}
+		{{ #if Description }}
+		/// <summary>
+		/// {{ Description }}
+		/// </summary>
+		{{ /if }}
+		{{ #if IsEnum }}
+		[JsonConverter(typeof({{ Type }}Converter))]
+		{{ /if }}
+		[JsonProperty("{{ JsonName }}")]
+		public {{ Type }} {{ Name }} { get; set; }{{ #unless @last }}{{ newline }}{{ /unless }}
+		{{ /each }}
+	}
+}

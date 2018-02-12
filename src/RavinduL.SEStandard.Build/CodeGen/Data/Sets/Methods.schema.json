@@ -1,0 +1,80 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema",
+
+	"definitions": {
+		"query": {
+			"type": "object",
+			"properties": {
+				"name": { "type": "string" },
+				"description": { "type": "string" },
+				"type": { "type": "string" },
+				"default": { "type": "string" }
+			},
+			"required": [ "name", "type" ]
+		},
+
+		"path": {
+			"type": "object",
+			"properties": {
+				"name": { "type": "string" },
+				"description": { "type": "string" },
+				"type": { "type": "string" }
+			},
+			"required": [ "name", "type" ]
+		},
+
+		"scope": {
+			"type": "string",
+			"enum": [
+				"ReadInbox",
+				"WriteAccess",
+				"PrivateInfo"
+			]
+		},
+
+		"method": {
+			"type": "object",
+			"properties": {
+				"name": { "type": "string" },
+				"description": { "type": "string" },
+				"path": { "type": "string" },
+				"url": { "type": "string" },
+				"returnType": { "type": "string" },
+				"post": { "type": "boolean" },
+				"isPaged": { "type": "boolean" },
+				"isDated": { "type": "boolean" },
+				"isNetworkMethod": { "type": "boolean" },
+				"isPreviewable": { "type": "boolean" },
+				"sort": { "type": "string" },
+				"auth": { "type": "boolean" },
+				"scopes": { "type": "array", "items": {
+					"$ref": "#/definitions/scope"
+				}},
+				"paths": { "type": "array", "items": {
+					"$ref": "#/definitions/path"
+				}},
+				"queries": { "type": "array", "items": {
+					"$ref": "#/definitions/query"
+				}}
+			},
+			"required": [ "name", "returnType", "path" ]
+		},
+
+		"methodGroup": {
+			"type": "object",
+			"properties": {
+				"name": { "type": "string" },
+				"description": { "type": "string" },
+				"methods": { "type": "array", "items": {
+					"$ref": "#/definitions/method"
+				}}
+			},
+			"required": [ "name", "methods" ]
+		}
+	},
+
+	"type": "array",
+	"items": {
+		"$ref": "#/definitions/methodGroup"
+	}
+}

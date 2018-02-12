@@ -1,0 +1,16 @@
+﻿namespace RavinduL.SEStandard
+{
+	using RavinduL.SEStandard.Endpoints;
+
+	partial class StackExchangeClient
+	{
+		{{ #each this }}
+		private I{{ Name }}Endpoint _{{ Name }};
+		public I{{ Name }}Endpoint {{ Name }}
+		{
+			get { return _{{ Name }} ?? (_{{ Name }} = new {{ Name }}Endpoint(this)); }
+			set { _{{ Name }} = value; }
+		}{{ #unless @last }}{{ newline }}{{ /unless }}
+		{{ /each }}
+	}
+}

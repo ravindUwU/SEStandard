@@ -1,0 +1,78 @@
+﻿namespace RavinduL.SEStandard.Models
+{
+	using System;
+	using Newtonsoft.Json;
+
+	{{ #if Description }}
+	/// <summary>
+	/// {{ Description }}
+	/// </summary>
+	{{ /if }}
+	{{ #if Flags }}
+	[Flags]
+	{{ /if}}
+	[EnumConverter(typeof({{ Name }}Converter))]
+	public enum {{ Name }}
+	{
+		{{ #each Values }}
+		{{ #if Description }}
+		/// <summary>
+		/// {{ Description }}
+		/// </summary>
+		{{ /if }}
+		{{ Name }}{{ #ifIsInt Value }} = {{ Value }}{{ /ifIsInt }},{{ #unless @last }}{{ newline }}{{ /unless }}
+		{{ /each }}
+	}
+
+	/// <summary>
+	/// Converts <see cref="{{ Name }}"/> values to <see cref="String"/>s and vice-versa.
+	/// </summary>
+	/// <seealso cref="EnumConverter"/>
+	public sealed class {{ Name }}Converter : EnumConverter
+	{
+		public override bool CanConvert(Type objectType)
+		{
+			return objectType == typeof(string);
+		}
+
+		public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+		{
+			return GetEnum((string)reader.Value);
+		}
+
+		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+		{
+			writer.WriteValue(GetString(value));
+		}
+
+		public override object GetEnum(string s)
+		{
+			switch (s)
+			{
+				{{ #each Values }}
+				case "{{ JsonName }}":
+					return {{ ../Name }}.{{ Name }};{{ #unless @last }}{{ newline }}{{ /unless }}
+				{{ /each }}
+
+				default:
+					return null;
+			}
+		}
+
+		public override string GetString(object o)
+		{
+			if (o is {{Name}} e)
+			{
+				switch (e)
+				{
+					{{ #each Values }}
+					case {{ ../Name }}.{{ Name }}:
+						return "{{ JsonName }}";{{ #unless @last }}{{ newline }}{{ /unless }}
+					{{ /each }}
+				}
+			}
+
+			return null;
+		}
+	}
+}

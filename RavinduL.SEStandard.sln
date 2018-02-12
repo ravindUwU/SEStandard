@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RavinduL.SEStandard", "src\RavinduL.SEStandard\RavinduL.SEStandard.csproj", "{99CFE44A-11E8-424C-935B-2E9DB15B6EF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RavinduL.SEStandard.Build", "src\RavinduL.SEStandard.Build\RavinduL.SEStandard.Build.csproj", "{523B86FA-7D22-4E7D-8C61-9516D9C98B67}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RavinduL.SEStandard.Tests.Unit", "src\RavinduL.SEStandard.Tests.Unit\RavinduL.SEStandard.Tests.Unit.csproj", "{F22384E9-F707-4AB7-9412-D1B804C85519}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RavinduL.SEStandard.Build.Tests.Unit", "src\RavinduL.SEStandard.Build.Tests.Unit\RavinduL.SEStandard.Build.Tests.Unit.csproj", "{BD80C745-40BC-4363-8881-B7EA1D17B594}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "src\Sandbox\Sandbox.csproj", "{6D57547B-038C-47F0-816A-2517C4947A36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{EAE0389A-55B2-4828-8374-730D5E5255E7}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Cake.ps1 = Cake.ps1
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99CFE44A-11E8-424C-935B-2E9DB15B6EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99CFE44A-11E8-424C-935B-2E9DB15B6EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99CFE44A-11E8-424C-935B-2E9DB15B6EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99CFE44A-11E8-424C-935B-2E9DB15B6EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{523B86FA-7D22-4E7D-8C61-9516D9C98B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{523B86FA-7D22-4E7D-8C61-9516D9C98B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{523B86FA-7D22-4E7D-8C61-9516D9C98B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{523B86FA-7D22-4E7D-8C61-9516D9C98B67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F22384E9-F707-4AB7-9412-D1B804C85519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22384E9-F707-4AB7-9412-D1B804C85519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F22384E9-F707-4AB7-9412-D1B804C85519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F22384E9-F707-4AB7-9412-D1B804C85519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD80C745-40BC-4363-8881-B7EA1D17B594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD80C745-40BC-4363-8881-B7EA1D17B594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD80C745-40BC-4363-8881-B7EA1D17B594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD80C745-40BC-4363-8881-B7EA1D17B594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D57547B-038C-47F0-816A-2517C4947A36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D57547B-038C-47F0-816A-2517C4947A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D57547B-038C-47F0-816A-2517C4947A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D57547B-038C-47F0-816A-2517C4947A36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94DE9E8C-B607-41E7-8438-6410C4199C92}
+	EndGlobalSection
+EndGlobal

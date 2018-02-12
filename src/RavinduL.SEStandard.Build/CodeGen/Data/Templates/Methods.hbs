@@ -1,0 +1,87 @@
+﻿namespace RavinduL.SEStandard.Endpoints
+{
+	using System;
+	using System.Collections.Generic;
+	using System.ComponentModel;
+	using System.Threading.Tasks;
+	using RavinduL.SEStandard.Http;
+	using RavinduL.SEStandard.Models;
+
+	{{ #if Description }}
+	/// <summary>
+	/// {{ Description }}
+	/// </summary>
+	{{ /if }}
+	public interface I{{ Name }}Endpoint
+	{
+		{{ #each Methods }}
+		Task<Wrapper<{{ ReturnType }}>> {{ Name }}Async({{ #each Parameters }}{{ this }}{{ #unless @last }}, {{ /unless }}{{ /each }});{{ #unless @last }}{{ newline }}{{ /unless }}
+		{{ /each }}
+	}
+
+	{{ #if Description }}
+	/// <summary>
+	/// {{ Description }}
+	/// </summary>
+	{{ /if }}
+	/// <seealso cref="Endpoint" />
+	/// <seealso cref="I{{ Name }}Endpoint" />
+	public sealed class {{ Name }}Endpoint : Endpoint, I{{ Name }}Endpoint
+	{
+		public {{ Name }}Endpoint(StackExchangeClient client) : base(client)
+		{
+		}
+
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public override bool Equals(object obj) => base.Equals(obj);
+
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public override int GetHashCode() => base.GetHashCode();
+
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public override string ToString() => base.ToString();
+
+		{{ #each Methods }}
+		{{ #if HasDescriptionOrUrl }}
+		/// <summary>
+		{{ #if Description }}/// {{ Description }}{{ /if }}
+		{{ #if Url }}/// <para>Visit {{ Url }} for more information.</para>{{ /if }}
+		/// </summary>
+		{{ /if }}
+		{{ #each ParametersWithDescriptions }}
+		/// <param name="{{ Name }}">{{ Description }}</param>
+		{{ /each }}
+		public Task<Wrapper<{{ ReturnType }}>> {{ Name }}Async({{ #each Parameters }}{{ this }}{{ #unless @last }}, {{ /unless }}{{ /each }})
+		{
+			{{ #each ParametersThatShouldntBeNull }}
+			if ({{ this }} == null)
+				throw new ArgumentNullException(nameof({{ this }}));{{ #unless @last }}{{ newline }}{{ /unless }}
+
+			{{ /each }}
+			{{ #if Auth }}
+			if (!client.HasAccessToken)
+				throw new InvalidOperationException("The instance of the StackExchangeClient lacks an access token, required to perform the request.");
+			{{ #each Scopes }}
+
+			if (!client.Scopes.HasFlag(Scopes.{{ this }}))
+				throw new InvalidOperationException("This instance of the StackExchangeClient class lacks the {{ this }} scope required to perform the request.");
+			{{ /each }}
+
+			{{ /if }}
+			{{ #if Paths }}
+			var path = String.Format("{{ Path }}"{{ #each Paths }}, ConvertToString({{ EscapedName }}){{ /each }});
+			{{ else }}
+			var path = "{{ Path }}";
+
+			{{ /if }}
+			var data = new Dictionary<string, string>();
+
+			{{ #each Queries }}
+			{ if (ConvertToString({{ EscapedName }}) is string _s_) data.Add("{{ Name }}", _s_); }
+			{{ /each }}
+
+			return client.PerformRequestAsync<{{ ReturnType }}>(path, data, HttpRequestMethod.{{ #if Post }}POST{{ else }}GET{{ /if }});
+		}{{ #unless @last }}{{ newline }}{{ /unless }}
+		{{ /each }}
+	}
+}

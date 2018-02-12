@@ -1,0 +1,691 @@
+[
+	{
+		"name": "Wrapper<T>",
+		"suffix": "where T : IStackExchangeModel",
+		"description": "Represents a response from the Stack Exchange API.",
+		"url": "https://api.stackexchange.com/docs/wrapper",
+		"properties": [
+			{ "jsonName": "backoff", "type": "int" },
+			{ "jsonName": "error_id", "type": "int" },
+			{ "jsonName": "error_message", "type": "string" },
+			{ "jsonName": "error_name", "type": "ApiError" },
+			{ "jsonName": "has_more", "type": "bool" },
+			{ "jsonName": "items", "type": "IEnumerable<T>" },
+			{ "jsonName": "page", "type": "int" },
+			{ "jsonName": "page_size", "type": "int" },
+			{ "jsonName": "quota_max", "type": "int" },
+			{ "jsonName": "quota_remaining", "type": "int" },
+			{ "jsonName": "total", "type": "int" },
+			{ "jsonName": "type", "type": "string" }
+		]
+	},
+	{
+		"name": "AccessToken",
+		"description": "Represents an access token that was created as part of an OAuth flow.",
+		"url": "https://api.stackexchange.com/docs/types/access-token",
+		"properties": [
+			{ "jsonName": "access_token", "type": "string", "name": "Token" },
+			{ "jsonName": "account_id", "type": "int" },
+			{ "jsonName": "expires_on_date", "type": "long" },
+			{ "jsonName": "scope", "type": "IEnumerable<string>" }
+		]
+	},
+	{
+		"name": "Answer",
+		"description": "Represents an answer to a question on one of the Stack Exchange sites.",
+		"url": "https://api.stackexchange.com/docs/types/answer",
+		"properties": [
+			{ "jsonName": "accepted", "type": "bool" },
+			{ "jsonName": "answer_id", "type": "int" },
+			{ "jsonName": "awarded_bounty_amount", "type": "int" },
+			{ "jsonName": "awarded_bounty_users", "type": "IEnumerable<ShallowUser>" },
+			{ "jsonName": "body", "type": "string" },
+			{ "jsonName": "body_markdown", "type": "string" },
+			{ "jsonName": "can_flag", "type": "bool" },
+			{ "jsonName": "comment_count", "type": "int" },
+			{ "jsonName": "comments", "type": "IEnumerable<Comment>" },
+			{ "jsonName": "community_owned_date", "type": "long" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "down_vote_count", "type": "int" },
+			{ "jsonName": "downvoted", "type": "bool" },
+			{ "jsonName": "is_accepted", "type": "bool" },
+			{ "jsonName": "last_activity_date", "type": "long" },
+			{ "jsonName": "last_edit_date", "type": "long" },
+			{ "jsonName": "last_editor", "type": "ShallowUser" },
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "locked_date", "type": "long" },
+			{ "jsonName": "owner", "type": "ShallowUser" },
+			{ "jsonName": "question_id", "type": "int" },
+			{ "jsonName": "score", "type": "int" },
+			{ "jsonName": "share_link", "type": "string" },
+			{ "jsonName": "tags", "type": "IEnumerable<string>" },
+			{ "jsonName": "title", "type": "string" },
+			{ "jsonName": "up_vote_count", "type": "int" },
+			{ "jsonName": "upvoted", "type": "bool" }
+		]
+	},
+	{
+		"name": "ShallowUser",
+		"description": "Represents a user, but omits many of the fields found on the User type.",
+		"url": "https://api.stackexchange.com/docs/types/shallow-user",
+		"properties": [
+			{ "jsonName": "accept_rate", "type": "int" },
+			{ "jsonName": "badge_counts", "type": "BadgeCounts" },
+			{ "jsonName": "display_name", "type": "string" },
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "profile_image", "type": "string" },
+			{ "jsonName": "reputation", "type": "int" },
+			{ "jsonName": "user_id", "type": "int" },
+			{ "jsonName": "user_type", "type": "UserType" }
+		]
+	},
+	{
+		"name": "BadgeCounts",
+		"description": "Represents the total badges, segregated by rank, that a user has earned.",
+		"url": "https://api.stackexchange.com/docs/types/badge-count",
+		"properties": [
+			{ "jsonName": "bronze", "type": "int" },
+			{ "jsonName": "gold", "type": "int" },
+			{ "jsonName": "silver", "type": "int" }
+		]
+	},
+	{
+		"name": "Comment",
+		"description": "All questions and answers on a Stack Exchange site can be commented on. This class represents those comments.",
+		"url": "https://api.stackexchange.com/docs/types/comment",
+		"properties": [
+			{ "jsonName": "body", "type": "string" },
+			{ "jsonName": "body_markdown", "type": "string" },
+			{ "jsonName": "can_flag", "type": "bool" },
+			{ "jsonName": "comment_id", "type": "int" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "edited", "type": "bool" },
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "owner", "type": "ShallowUser" },
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "post_type", "type": "PostType" },
+			{ "jsonName": "reply_to_user", "type": "ShallowUser" },
+			{ "jsonName": "score", "type": "int" },
+			{ "jsonName": "upvoted", "type": "bool" }
+		]
+	},
+	{
+		"name": "Badge",
+		"description": "Represents a badge on a Stack Exchange site.",
+		"url": "https://api.stackexchange.com/docs/types/badge",
+		"properties": [
+			{ "jsonName": "award_count", "type": "int" },
+			{ "jsonName": "badge_id", "type": "int" },
+			{ "jsonName": "badge_type", "type": "BadgeType" },
+			{ "jsonName": "description", "type": "string" },
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "name", "type": "string" },
+			{ "jsonName": "rank", "type": "BadgeRank" },
+			{ "jsonName": "user", "type": "ShallowUser" }
+		]
+	},
+	{
+		"name": "Error",
+		"description": "Represents the errors that can be returned by the API.",
+		"url": "https://api.stackexchange.com/docs/types/error",
+		"properties": [
+			{ "jsonName": "description", "type": "string" },
+			{ "jsonName": "error_id", "type": "int" },
+			{ "jsonName": "error_name", "type": "string" }
+		]
+	},
+	{
+		"name": "Event",
+		"description": "Represents an event that has recently occurred on a Stack Exchange site.",
+		"url": "https://api.stackexchange.com/docs/types/event",
+		"properties": [
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "event_id", "type": "int" },
+			{ "jsonName": "event_type", "type": "EventType" },
+			{ "jsonName": "excerpt", "type": "string" },
+			{ "jsonName": "link", "type": "string" }
+		]
+	},
+	{
+		"name": "Filter",
+		"description": "Represents a filter on the API.",
+		"url": "https://api.stackexchange.com/docs/types/filter",
+		"properties": [
+			{ "jsonName": "filter", "type": "string", "name": "Value" },
+			{ "jsonName": "filter_type", "type": "FilterType" },
+			{ "jsonName": "included_fields", "type": "IEnumerable<string>" }
+		]
+	},
+	{
+		"name": "FlagOption",
+		"description": "Represents a flag (including close reasons on questions) which could be cast against an object.",
+		"url": "https://api.stackexchange.com/docs/types/flag-option",
+		"properties": [
+			{ "jsonName": "count", "type": "int" },
+			{ "jsonName": "description", "type": "string" },
+			{ "jsonName": "dialog_title", "type": "string" },
+			{ "jsonName": "has_flagged", "type": "bool" },
+			{ "jsonName": "option_id", "type": "int" },
+			{ "jsonName": "requires_comment", "type": "bool" },
+			{ "jsonName": "requires_question_id", "type": "bool" },
+			{ "jsonName": "requires_site", "type": "bool" },
+			{ "jsonName": "sub_options", "type": "IEnumerable<FlagOption>" },
+			{ "jsonName": "title", "type": "string" }
+		]
+	},
+	{
+		"name": "InboxItem",
+		"description": "Represents an item in a user's global inbox.",
+		"url": "https://api.stackexchange.com/docs/types/inbox-item",
+		"properties": [
+			{ "jsonName": "answer_id", "type": "int" },
+			{ "jsonName": "body", "type": "string" },
+			{ "jsonName": "comment_id", "type": "int" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "is_unread", "type": "bool" },
+			{ "jsonName": "item_type", "type": "InboxItemType" },
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "question_id", "type": "int" },
+			{ "jsonName": "site", "type": "Site" },
+			{ "jsonName": "title", "type": "string" }
+		]
+	},
+	{
+		"name": "Site",
+		"description": "Represents a site in the Stack Exchange network.",
+		"url": "https://api.stackexchange.com/docs/types/site",
+		"properties": [
+			{ "jsonName": "aliases", "type": "IEnumerable<string>" },
+			{ "jsonName": "api_site_parameter", "type": "string" },
+			{ "jsonName": "audience", "type": "string" },
+			{ "jsonName": "closed_beta_date", "type": "long" },
+			{ "jsonName": "favicon_url", "type": "string" },
+			{ "jsonName": "high_resolution_icon_url", "type": "string" },
+			{ "jsonName": "icon_url", "type": "string" },
+			{ "jsonName": "launch_date", "type": "long" },
+			{ "jsonName": "logo_url", "type": "string" },
+			{ "jsonName": "markdown_extensions", "type": "IEnumerable<string>" },
+			{ "jsonName": "name", "type": "string" },
+			{ "jsonName": "open_beta_date", "type": "long" },
+			{ "jsonName": "related_sites", "type": "IEnumerable<RelatedSite>" },
+			{ "jsonName": "site_state", "type": "SiteState" },
+			{ "jsonName": "site_type", "type": "SiteType" },
+			{ "jsonName": "site_url", "type": "string" },
+			{ "jsonName": "styling", "type": "Styling" },
+			{ "jsonName": "twitter_account", "type": "string" }
+		]
+	},
+	{
+		"name": "RelatedSite",
+		"description": "Represents a site that is related in some way to another.",
+		"url": "https://api.stackexchange.com/docs/types/related-site",
+		"properties": [
+			{ "jsonName": "api_site_parameter", "type": "string" },
+			{ "jsonName": "name", "type": "string" },
+			{ "jsonName": "relation", "type": "SiteRelation" },
+			{ "jsonName": "site_url", "type": "string" }
+		]
+	},
+	{
+		"name": "Styling",
+		"description": "Represents some of the styling of a site in the Stack Exchange network.",
+		"url": "https://api.stackexchange.com/docs/types/styling",
+		"properties": [
+			{ "jsonName": "link_color", "type": "string" },
+			{ "jsonName": "tag_background_color", "type": "string" },
+			{ "jsonName": "tag_foreground_color", "type": "string" }
+		]
+	},
+	{
+		"name": "Info",
+		"description": "Describes a site in the Stack Exchange network.",
+		"url": "https://api.stackexchange.com/docs/types/info",
+		"properties": [
+			{ "jsonName": "answers_per_minute", "type": "double" },
+			{ "jsonName": "api_revision", "type": "string" },
+			{ "jsonName": "badges_per_minute", "type": "double" },
+			{ "jsonName": "new_active_users", "type": "int" },
+			{ "jsonName": "questions_per_minute", "type": "double" },
+			{ "jsonName": "site", "type": "Site" },
+			{ "jsonName": "total_accepted", "type": "int" },
+			{ "jsonName": "total_answers", "type": "int" },
+			{ "jsonName": "total_badges", "type": "int" },
+			{ "jsonName": "total_comments", "type": "int" },
+			{ "jsonName": "total_questions", "type": "int" },
+			{ "jsonName": "total_unanswered", "type": "int" },
+			{ "jsonName": "total_users", "type": "int" },
+			{ "jsonName": "total_votes", "type": "int" }
+		]
+	},
+	{
+		"name": "NetworkUser",
+		"description": "Represents a user, however it is greatly reduced when compared to the User type to reduce the amount of work that needs to be done to fetch it from multiple sites in the network.",
+		"url": "https://api.stackexchange.com/docs/types/network-user",
+		"properties": [
+			{ "jsonName": "account_id", "type": "int" },
+			{ "jsonName": "answer_count", "type": "int" },
+			{ "jsonName": "badge_counts", "type": "BadgeCounts" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "last_access_date", "type": "long" },
+			{ "jsonName": "question_count", "type": "int" },
+			{ "jsonName": "reputation", "type": "int" },
+			{ "jsonName": "site_name", "type": "string" },
+			{ "jsonName": "site_url", "type": "string" },
+			{ "jsonName": "top_answers", "type": "IEnumerable<NetworkPost>" },
+			{ "jsonName": "top_questions", "type": "IEnumerable<NetworkPost>" },
+			{ "jsonName": "user_id", "type": "int" },
+			{ "jsonName": "user_type", "type": "UserType" }
+		]
+	},
+	{
+		"name": "NetworkPost",
+		"description": "Represents a post on the network, however it is greatly reduced when compared to the Post type to reduce the amount of work that needs to be done to fetch it from multiple sites in the network.",
+		"url": "https://api.stackexchange.com/docs/types/network-post",
+		"properties": [
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "post_type", "type": "PostType" },
+			{ "jsonName": "score", "type": "int" },
+			{ "jsonName": "title", "type": "string" }
+		]
+	},
+	{
+		"name": "AccountMerge",
+		"description": "Respresents a network level merger of two accounts.",
+		"url": "https://api.stackexchange.com/docs/types/account-merge",
+		"properties": [
+			{ "jsonName": "merge_date", "type": "long" },
+			{ "jsonName": "new_account_id", "type": "int" },
+			{ "jsonName": "old_account_id", "type": "int" }
+		]
+	},
+	{
+		"name": "NetworkActivity",
+		"description": "Represents activity across all sites on the Stack Exchange network.",
+		"url": "https://api.stackexchange.com/docs/types/network-activity",
+		"properties": [
+			{ "jsonName": "account_id", "type": "int" },
+			{ "jsonName": "activity_type", "type": "NetworkActivityType" },
+			{ "jsonName": "api_site_parameter", "type": "string" },
+			{ "jsonName": "badge_id", "type": "int" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "description", "type": "string" },
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "score", "type": "int" },
+			{ "jsonName": "tags", "type": "IEnumerable<string>" },
+			{ "jsonName": "title", "type": "string" }
+		]
+	},
+	{
+		"name": "Notification",
+		"description": "Represents an item in a user's notification tab.",
+		"url": "https://api.stackexchange.com/docs/types/notification",
+		"properties": [
+			{ "jsonName": "body", "type": "string" }, 
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "is_unread", "type": "bool" },
+			{ "jsonName": "notification_type", "type": "NotificationType" },
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "site", "type": "Site" }
+		]
+	},
+	{
+		"name": "Post",
+		"description": "Represents the intersection of the Question and Answer types.",
+		"url": "https://api.stackexchange.com/docs/types/post",
+		"properties": [
+			{ "jsonName": "body", "type": "string" },
+			{ "jsonName": "body_markdown", "type": "string" },
+			{ "jsonName": "comment_count", "type": "int" },
+			{ "jsonName": "comments", "type": "IEnumerable<Comment>" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "down_vote_count", "type": "int" },
+			{ "jsonName": "downvoted", "type": "bool" },
+			{ "jsonName": "last_activity_date", "type": "long" },
+			{ "jsonName": "last_edit_date", "type": "long" },
+			{ "jsonName": "last_editor", "type": "ShallowUser" },
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "owner", "type": "ShallowUser" },
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "post_type", "type": "PostType" },
+			{ "jsonName": "score", "type": "int" },
+			{ "jsonName": "share_link", "type": "string" },
+			{ "jsonName": "title", "type": "string" },
+			{ "jsonName": "up_vote_count", "type": "int" },
+			{ "jsonName": "upvoted", "type": "bool" }
+		]
+	},
+	{
+		"name": "Privilege",
+		"description": "Represents a privilege a user may have on a Stack Exchange site.",
+		"url": "https://api.stackexchange.com/docs/types/privilege",
+		"properties": [
+			{ "jsonName": "description", "type": "string" },
+			{ "jsonName": "reputation", "type": "int" },
+			{ "jsonName": "short_description", "type": "string" }
+		]
+	},
+	{
+		"name": "Question",
+		"description": "Represents a question on one of the Stack Exchange sites.",
+		"url": "https://api.stackexchange.com/docs/types/question",
+		"properties": [
+			{ "jsonName": "accepted_answer_id", "type": "int" },
+			{ "jsonName": "answer_count", "type": "int" },
+			{ "jsonName": "answers", "type": "IEnumerable<Answer>" },
+			{ "jsonName": "body", "type": "string" },
+			{ "jsonName": "body_markdown", "type": "string" },
+			{ "jsonName": "bounty_amount", "type": "int" },
+			{ "jsonName": "bounty_closes_date", "type": "long" },
+			{ "jsonName": "bounty_user", "type": "ShallowUser" },
+			{ "jsonName": "can_close", "type": "bool" },
+			{ "jsonName": "can_flag", "type": "bool" },
+			{ "jsonName": "close_vote_count", "type": "int" },
+			{ "jsonName": "closed_date", "type": "long" },
+			{ "jsonName": "closed_details", "type": "ClosedDetails" },
+			{ "jsonName": "closed_reason", "type": "string" },
+			{ "jsonName": "comment_count", "type": "int" },
+			{ "jsonName": "comments", "type": "IEnumerable<Comment>" },
+			{ "jsonName": "community_owned_date", "type": "long" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "delete_vote_count", "type": "int" },
+			{ "jsonName": "down_vote_count", "type": "int" },
+			{ "jsonName": "downvoted", "type": "bool" },
+			{ "jsonName": "favorite_count", "type": "int" },
+			{ "jsonName": "favorited", "type": "bool" },
+			{ "jsonName": "is_answered", "type": "bool" },
+			{ "jsonName": "last_activity_date", "type": "long" },
+			{ "jsonName": "last_edit_date", "type": "long" },
+			{ "jsonName": "last_editor", "type": "ShallowUser" },
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "locked_date", "type": "long" },
+			{ "jsonName": "migrated_from", "type": "MigrationInfo" },
+			{ "jsonName": "migrated_to", "type": "MigrationInfo" },
+			{ "jsonName": "notice", "type": "Notice" },
+			{ "jsonName": "owner", "type": "ShallowUser" },
+			{ "jsonName": "protected_date", "type": "long" },
+			{ "jsonName": "question_id", "type": "int" },
+			{ "jsonName": "reopen_vote_count", "type": "int" },
+			{ "jsonName": "score", "type": "int" },
+			{ "jsonName": "share_link", "type": "string" },
+			{ "jsonName": "tags", "type": "IEnumerable<string>" },
+			{ "jsonName": "title", "type": "string" },
+			{ "jsonName": "up_vote_count", "type": "int" },
+			{ "jsonName": "upvoted", "type": "bool" },
+			{ "jsonName": "view_count", "type": "int" }
+		]
+	},
+	{
+		"name": "ClosedDetails",
+		"description": "Represents details about a question closure.",
+		"url": "https://api.stackexchange.com/docs/types/closed-details",
+		"properties": [
+			{ "jsonName": "by_users", "type": "IEnumerable<ShallowUser>" },
+			{ "jsonName": "description", "type": "string" },
+			{ "jsonName": "on_hold", "type": "bool" },
+			{ "jsonName": "original_questions", "type": "IEnumerable<OriginalQuestion>" },
+			{ "jsonName": "reason", "type": "string" }
+		]
+	},
+	{
+		"name": "OriginalQuestion",
+		"description": "Represents an \"original\" question that another was closed as a duplicate of.",
+		"url": "https://api.stackexchange.com/docs/types/original-question",
+		"properties": [
+			{ "jsonName": "accepted_answer_id", "type": "int" },
+			{ "jsonName": "answer_count", "type": "int" },
+			{ "jsonName": "question_id", "type": "int" },
+			{ "jsonName": "title", "type": "string" }
+		]
+	},
+	{
+		"name": "MigrationInfo",
+		"description": "Represents a question's migration to or from a different site in the Stack Exchange network.",
+		"url": "https://api.stackexchange.com/docs/types/migration-info",
+		"properties": [
+			{ "jsonName": "on_date", "type": "long" },
+			{ "jsonName": "other_site", "type": "Site" },
+			{ "jsonName": "question_id", "type": "int" }
+		]
+	},
+	{
+		"name": "Notice",
+		"description": "Represents a notice on a post.",
+		"url": "https://api.stackexchange.com/docs/types/notice",
+		"properties": [
+			{ "jsonName": "body", "type": "string" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "owner_user_id", "type": "int" }
+		]
+	},
+	{
+		"name": "QuestionTimeline",
+		"description": "Represents events in the history of a question.",
+		"url": "https://api.stackexchange.com/docs/types/question-timeline",
+		"properties": [
+			{ "jsonName": "comment_id", "type": "int" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "down_vote_count", "type": "int" },
+			{ "jsonName": "owner", "type": "ShallowUser" },
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "question_id", "type": "int" },
+			{ "jsonName": "revision_guid", "type": "string" },
+			{ "jsonName": "timeline_type", "type": "QuestionTimelineType" },
+			{ "jsonName": "up_vote_count", "type": "int" },
+			{ "jsonName": "user", "type": "ShallowUser" }
+		]
+	},
+	{
+		"name": "Reputation",
+		"description": "Represents a change in reputation for a user.",
+		"url": "https://api.stackexchange.com/docs/types/reputation",
+		"properties": [
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "on_date", "type": "long" },
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "post_type", "type": "PostType" },
+			{ "jsonName": "reputation_change", "type": "int" },
+			{ "jsonName": "title", "type": "string" },
+			{ "jsonName": "user_id", "type": "int" },
+			{ "jsonName": "vote_type", "type": "VoteType" }
+		]
+	},
+	{
+		"name": "ReputationHistory",
+		"description": "Describes the events that make up a user's reputation history.",
+		"url": "https://api.stackexchange.com/docs/types/reputation-history",
+		"properties": [
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "reputation_change", "type": "int" },
+			{ "jsonName": "reputation_history_type", "type": "ReputationHistoryType" },
+			{ "jsonName": "user_id", "type": "int" }
+		]
+	},
+	{
+		"name": "Revision",
+		"description": "Represents that state of a post at some point in its history.",
+		"url": "https://api.stackexchange.com/docs/types/revision",
+		"properties": [
+			{ "jsonName": "body", "type": "string" },
+			{ "jsonName": "comment", "type": "string" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "is_rollback", "type": "bool" },
+			{ "jsonName": "last_body", "type": "string" },
+			{ "jsonName": "last_tags", "type": "IEnumerable<string>" },
+			{ "jsonName": "last_title", "type": "string" },
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "post_type", "type": "PostType" },
+			{ "jsonName": "revision_guid", "type": "System.Guid" },
+			{ "jsonName": "revision_number", "type": "int" },
+			{ "jsonName": "revision_type", "type": "RevisionType" },
+			{ "jsonName": "set_community_wiki", "type": "bool" },
+			{ "jsonName": "tags", "type": "IEnumerable<string>" },
+			{ "jsonName": "title", "type": "string" },
+			{ "jsonName": "user", "type": "ShallowUser" }
+		]
+	},
+	{
+		"name": "SearchExcerpt",
+		"description": "Represents a search result row.",
+		"url": "https://api.stackexchange.com/docs/types/search-excerpt",
+		"properties": [
+			{ "jsonName": "answer_count", "type": "int" },
+			{ "jsonName": "answer_id", "type": "int" },
+			{ "jsonName": "body", "type": "string" },
+			{ "jsonName": "closed_date", "type": "long" },
+			{ "jsonName": "community_owned_date", "type": "long" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "equivalent_tag_search", "type": "IEnumerable<string>" },
+			{ "jsonName": "excerpt", "type": "string" },
+			{ "jsonName": "has_accepted_answer", "type": "bool" },
+			{ "jsonName": "is_accepted", "type": "bool" },
+			{ "jsonName": "is_answered", "type": "bool" },
+			{ "jsonName": "item_type", "type": "PostType" },
+			{ "jsonName": "last_activity_date", "type": "long" },
+			{ "jsonName": "last_activity_user", "type": "ShallowUser" },
+			{ "jsonName": "locked_date", "type": "long" },
+			{ "jsonName": "owner", "type": "ShallowUser" },
+			{ "jsonName": "question_id", "type": "int" },
+			{ "jsonName": "question_score", "type": "int" },
+			{ "jsonName": "score", "type": "int" },
+			{ "jsonName": "tags", "type": "IEnumerable<string>" },
+			{ "jsonName": "title", "type": "string" }
+		]
+	},
+	{
+		"name": "SuggestedEdit",
+		"description": "Represents a suggested edit on a Stack Exchange site.",
+		"url": "https://api.stackexchange.com/docs/types/suggested-edit",
+		"properties": [
+			{ "jsonName": "approval_date", "type": "long" },
+			{ "jsonName": "body", "type": "string" },
+			{ "jsonName": "comment", "type": "string" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "post_type", "type": "PostType" },
+			{ "jsonName": "proposing_user", "type": "ShallowUser" },
+			{ "jsonName": "rejection_date", "type": "long" },
+			{ "jsonName": "suggested_edit_id", "type": "int" },
+			{ "jsonName": "tags", "type": "IEnumerable<string>" },
+			{ "jsonName": "title", "type": "string" }
+		]
+	},
+	{
+		"name": "Tag",
+		"description": "Represents a tag on a Stack Exchange site.",
+		"url": "https://api.stackexchange.com/docs/types/tag",
+		"properties": [
+			{ "jsonName": "count", "type": "int" },
+			{ "jsonName": "has_synonyms", "type": "bool" },
+			{ "jsonName": "is_moderator_only", "type": "bool" },
+			{ "jsonName": "is_required", "type": "bool" },
+			{ "jsonName": "last_activity_date", "type": "long" },
+			{ "jsonName": "name", "type": "string" },
+			{ "jsonName": "synonyms", "type": "IEnumerable<string>" },
+			{ "jsonName": "user_id", "type": "int" }
+		]
+	},
+	{
+		"name": "TagScore",
+		"description": "Represents a user's statistics within a tag.",
+		"url": "https://api.stackexchange.com/docs/types/tag-score",
+		"properties": [
+			{ "jsonName": "post_count", "type": "int" },
+			{ "jsonName": "score", "type": "int" },
+			{ "jsonName": "user", "type": "ShallowUser" }
+		]
+	},
+	{
+		"name": "TagSynonym",
+		"description": "Represents a mapping from one tag to another.",
+		"url": "https://api.stackexchange.com/docs/types/tag-synonym",
+		"properties": [
+			{ "jsonName": "applied_count", "type": "int" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "from_tag", "type": "string" },
+			{ "jsonName": "last_applied_date", "type": "long" },
+			{ "jsonName": "to_tag", "type": "string" }
+		]
+	},
+	{
+		"name": "TagWiki",
+		"description": "Represents the community edited wiki for a given tag.",
+		"url": "https://api.stackexchange.com/docs/types/tag-wiki",
+		"properties": [
+			{ "jsonName": "body", "type": "string" },
+			{ "jsonName": "body_last_edit_date", "type": "long" },
+			{ "jsonName": "excerpt", "type": "string" },
+			{ "jsonName": "excerpt_last_edit_date", "type": "long" },
+			{ "jsonName": "last_body_editor", "type": "ShallowUser" },
+			{ "jsonName": "last_excerpt_editor", "type": "ShallowUser" },
+			{ "jsonName": "tag_name", "type": "string" }
+		]
+	},
+	{
+		"name": "TopTag",
+		"description": "Represents a user's score and activity in a given tag.",
+		"url": "https://api.stackexchange.com/docs/types/top-tag",
+		"properties": [
+			{ "jsonName": "answer_count", "type": "int" },
+			{ "jsonName": "answer_score", "type": "int" },
+			{ "jsonName": "question_count", "type": "int" },
+			{ "jsonName": "question_score", "type": "int" },
+			{ "jsonName": "tag_name", "type": "string" },
+			{ "jsonName": "user_id", "type": "int" }
+		]
+	},
+	{
+		"name": "User",
+		"description": "Represents a user on a Stack Exchange site.",
+		"url": "https://api.stackexchange.com/docs/types/user",
+		"properties": [
+			{ "jsonName": "about_me", "type": "string" },
+			{ "jsonName": "accept_rate", "type": "int" },
+			{ "jsonName": "account_id", "type": "int" },
+			{ "jsonName": "age", "type": "int" },
+			{ "jsonName": "answer_count", "type": "int" },
+			{ "jsonName": "badge_counts", "type": "BadgeCounts" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "display_name", "type": "string" },
+			{ "jsonName": "down_vote_count", "type": "int" },
+			{ "jsonName": "is_employee", "type": "bool" },
+			{ "jsonName": "last_access_date", "type": "long" },
+			{ "jsonName": "last_modified_date", "type": "long" },
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "location", "type": "string" },
+			{ "jsonName": "profile_image", "type": "string" },
+			{ "jsonName": "question_count", "type": "int" },
+			{ "jsonName": "reputation", "type": "int" },
+			{ "jsonName": "reputation_change_day", "type": "int" },
+			{ "jsonName": "reputation_change_month", "type": "int" },
+			{ "jsonName": "reputation_change_quarter", "type": "int" },
+			{ "jsonName": "reputation_change_week", "type": "int" },
+			{ "jsonName": "reputation_change_year", "type": "int" },
+			{ "jsonName": "timed_penalty_date", "type": "long" },
+			{ "jsonName": "up_vote_count", "type": "int" },
+			{ "jsonName": "user_id", "type": "int" },
+			{ "jsonName": "user_type", "type": "UserType" },
+			{ "jsonName": "view_count", "type": "int" },
+			{ "jsonName": "website_url", "type": "string" }
+		]
+	},
+	{
+		"name": "UserTimeline",
+		"description": "Describes public actions that a user has taken.",
+		"url": "https://api.stackexchange.com/docs/types/user-timeline",
+		"properties": [
+			{ "jsonName": "badge_id", "type": "int" },
+			{ "jsonName": "comment_id", "type": "int" },
+			{ "jsonName": "creation_date", "type": "long" },
+			{ "jsonName": "detail", "type": "string" },
+			{ "jsonName": "link", "type": "string" },
+			{ "jsonName": "post_id", "type": "int" },
+			{ "jsonName": "post_type", "type": "PostType" },
+			{ "jsonName": "suggested_edit_id", "type": "int" },
+			{ "jsonName": "timeline_type", "type": "UserTimelineType" },
+			{ "jsonName": "title", "type": "string" },
+			{ "jsonName": "user_id", "type": "int" }
+		]
+	}
+]
