@@ -3,7 +3,7 @@
 	using Newtonsoft.Json;
 
 	/// <summary>
-	/// Uses Json.NET to deserialize a JSON string to an object.
+	/// Uses the Json.NET library to deserialize a JSON string to an object.
 	/// </summary>
 	/// <seealso cref="IJsonDeserializer" />
 	public sealed class JsonDeserializer : IJsonDeserializer

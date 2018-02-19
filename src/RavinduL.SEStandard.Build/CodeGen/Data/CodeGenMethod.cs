@@ -70,7 +70,7 @@
 			);
 
 		/// <summary>
-		/// All queries with default values, each in the form of <c>"{Type} {Identifier} = {Value}"</c>.
+		/// All queries with default values, each in the form of $"{Type} {Identifier} = {Value}".
 		/// </summary>
 		[JsonIgnore]
 		public IEnumerable<string> ParametersWithDefaults

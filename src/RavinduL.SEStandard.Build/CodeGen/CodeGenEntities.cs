@@ -3,7 +3,7 @@
 	using System;
 
 	/// <summary>
-	/// Specifies the entities for that should be generated.
+	/// Specifies the entities that should be generated.
 	/// <para>Note that this enumeration is implemented as a bit field, in which entity dependencies (for example, the generation of <see cref="Classes"/> requires awareness of the available <see cref="Enums"/>) are mapped.</para>
 	/// </summary>
 	[Flags]

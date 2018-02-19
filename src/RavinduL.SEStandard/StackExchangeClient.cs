@@ -46,12 +46,11 @@
 		public string Key { get; }
 
 		private string accessToken;
-
 		private Models.Scopes _scopes;
 		private string scopesString = null;
 
 		/// <summary>
-		/// Gets the scopes (permission) that this <see cref="StackExchangeClient"/> object has, to data on the Stack Exchange network.
+		/// Gets the scopes (permissions) that this <see cref="StackExchangeClient"/> object has, to data on the Stack Exchange network.
 		/// <para>Visit https://api.stackexchange.com/docs/authentication#scope for more information about scopes.</para>
 		/// </summary>
 		public Models.Scopes Scopes
@@ -112,7 +111,7 @@
 		/// <summary>
 		/// Initializes the <see cref="IHttpRequester"/> and <see cref="IJsonDeserializer"/> used by this <see cref="StackExchangeClient"/> object.
 		/// </summary>
-		/// <exception cref="ArgumentNullException"> Thrown if the <see cref="IHttpRequester"/> or the <see cref="IJsonDeserializer"/> is null.</exception>
+		/// <exception cref="ArgumentNullException">Thrown if the <see cref="IHttpRequester"/> or the <see cref="IJsonDeserializer"/> is null.</exception>
 		private void PostConstructor()
 		{
 			httpRequester = CreateHttpRequester() ?? throw new ArgumentNullException($"A non-null {nameof(IHttpRequester)} is required.");

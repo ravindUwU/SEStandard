@@ -16,7 +16,6 @@ namespace RavinduL.SEStandard.Build
 		/// <summary>
 		/// This method is executed before any tasks are run. If setup fails, no tasks will be executed but teardown will be performed.
 		/// </summary>
-		/// <param name="context">The context.</param>
 		public override void Setup(Context context)
 		{
 			var solutionPath = context.Environment.WorkingDirectory.Combine("../..").Collapse().CombineWithFilePath("RavinduL.SEStandard.sln");

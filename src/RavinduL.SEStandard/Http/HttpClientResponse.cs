@@ -4,7 +4,7 @@
 	using System.Threading.Tasks;
 
 	/// <summary>
-	/// A response to an HTTP request made by a <see cref="HttpClientRequester"/>.
+	/// A response to a HTTP request made by a <see cref="HttpClientRequester"/>.
 	/// </summary>
 	/// <seealso cref="IHttpResponse" />
 	public sealed class HttpClientResponse : IHttpResponse
@@ -15,7 +15,7 @@
 		public string Content { get; private set; }
 
 		/// <summary>
-		/// Gets the status codeof the HTTP response.
+		/// Gets the status code of the HTTP response.
 		/// </summary>
 		public int StatusCode { get; private set; }
 
@@ -29,7 +29,7 @@
 		}
 
 		/// <summary>
-		/// Asynchronously genrates an <see cref="HttpClientResponse"/> from the specified <see cref="HttpResponseMessage"/>.
+		/// Asynchronously generates a <see cref="HttpClientResponse"/> from the specified <see cref="HttpResponseMessage"/>.
 		/// </summary>
 		public static async Task<HttpClientResponse> FromHttpResponseMessageAsync(HttpResponseMessage responseMessage)
 		{

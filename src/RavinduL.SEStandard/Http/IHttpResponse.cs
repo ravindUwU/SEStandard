@@ -1,7 +1,7 @@
 ﻿namespace RavinduL.SEStandard.Http
 {
 	/// <summary>
-	/// A response to an HTTP request made by a <see cref="IHttpRequester"/>.
+	/// A response to a HTTP request made by an <see cref="IHttpRequester"/>.
 	/// </summary>
 	public interface IHttpResponse
 	{
@@ -11,12 +11,12 @@
 		string Content { get; }
 
 		/// <summary>
-		/// Gets the status codeof the HTTP response.
+		/// Gets the status code of the HTTP response.
 		/// </summary>
 		int StatusCode { get; }
 
 		/// <summary>
-		/// Gets a value indicating if the <see cref="StatusCode"/> is indicative of the request completing successfully.
+		/// Gets a value indicating whether the <see cref="StatusCode"/> is indicative of the request completing successfully.
 		/// </summary>
 		bool IsSuccessStatusCode { get; }
 	}

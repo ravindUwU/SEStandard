@@ -14,8 +14,8 @@
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Endpoint"/> class.
 		/// </summary>
-		/// <param name="client">The <see cref="StackExchangeClient"/> to perform requests via.</param>
-		/// <exception cref="ArgumentNullException">client</exception>
+		/// <param name="client">The <see cref="StackExchangeClient"/> object to perform requests via.</param>
+		/// <exception cref="ArgumentNullException">Thrown if the specified <see cref="StackExchangeClient"/> object is <c>null</c>.</exception>
 		protected Endpoint(StackExchangeClient client)
 		{
 			this.client = client ?? throw new ArgumentNullException(nameof(client));

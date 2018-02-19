@@ -1,5 +1,8 @@
 ﻿namespace RavinduL.SEStandard
 {
+	/// <summary>
+	/// Represents the result of an attempt to complete the implicit authentication flow via <see cref="StackExchangeClient.TryImplicitAuthentication(System.Uri)"/>.
+	/// </summary>
 	public class ImplicitAuthenticationResult
 	{
 		private ImplicitAuthenticationResult()

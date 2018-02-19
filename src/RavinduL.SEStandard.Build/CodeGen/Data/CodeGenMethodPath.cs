@@ -1,6 +1,7 @@
 ﻿namespace RavinduL.SEStandard.Build.CodeGen.Data
 {
 	using Newtonsoft.Json;
+
 	public class CodeGenMethodPath
 	{
 		[JsonProperty("name")]

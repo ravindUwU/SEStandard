@@ -282,5 +282,5 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-# Folder into which the code generation scripts of RavinduL.SESTandard.Build outputs content
+# Folder into which the code generation scripts of RavinduL.SEStandard.Build outputs content
 CodeGenOutput/

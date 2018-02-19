@@ -41,7 +41,7 @@ To install this library via **NuGet** ([package](https://www.nuget.org/packages/
 To install the NuGet package via the **.NET Core CLI**,
 
 ```Text
-	PS> dotnet add package RavinduL.SEStandard --version 1.0.0-rc`
+	PS> dotnet add package RavinduL.SEStandard --version 1.0.0-rc
 ```
 
 Should you prefer to manually build the library from its source instead, please refer to the [Contributing](#contributing) section for instructions on how to do so.
@@ -87,7 +87,7 @@ var client = new StackExchangeClient
 	scopes: Scopes.ReadInbox | Scopes.PrivateAccess | Scopes.WriteAccess,
 
 	// (optional)
-	// If you've got an custom access token you'd like to re-use,
+	// If you've got an custom access token stored away, that you'd like to re-use,
 	accessToken: "accessToken"
 	// Ensure that the specified scopes correspond to the custom access token.
 );
@@ -146,7 +146,7 @@ Step 1: Retrieve the implicit authentication URL, and direct the user to it,
 <dd>
 
 ```CSharp
-var url = client.GetImplicitAuthenticationUrl()
+var url = client.GetImplicitAuthenticationUrl();
 
 // Direct the user to uri
 WebBrowser.Navigate(url);
@@ -172,7 +172,10 @@ WebBrowser_Navigated = (sender, eventArgs) =>
 
 	if (result.State == ImplicitAuthenticationState.Successful)
 	{
+		// The client is now authenticated, and has a valid access token.
+
 		Console.WriteLine($"Access Token: {result.AccessToken}");
+		Console.WriteLine(client.HasAccessToken); // True
 
 		// Unsubscribe from the event.
 		WebBrowser.Navigated -= WebBrowser_Navigated;
