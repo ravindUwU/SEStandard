@@ -5,9 +5,9 @@
 		<StartupObject>RavinduL.SEStandard.Build.Program</StartupObject>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Cake.Frosting" Version="0.1.0-alpha0068" />
+		<PackageReference Include="Cake.Frosting" Version="0.31.0" />
 		<PackageReference Include="Handlebars.Net" Version="1.9.0" />
-		<PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
 		<PackageReference Include="System.ValueTuple" Version="4.4.0" />
 	</ItemGroup>
 	<ProjectExtensions><VisualStudio><UserProperties CodeGen_4Data_4Sets_4Enums_1json__JSONSchema="Enums.schema.json" CodeGen_4Data_4Sets_4Methods_1json__JSONSchema="Methods.schema.json" CodeGen_4Data_4Sets_4Classes_1json__JSONSchema="Classes.schema.json" /></VisualStudio></ProjectExtensions>
